@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Etapa de Auditoría</title>
+    <!-- 
+    ==========================================
+    © 2025 AUDITAPH - TODOS LOS DERECHOS RESERVADOS
+    Este código es propiedad exclusiva de AUDITAPH
+    Su uso, copia o distribución no autorizada está prohibida
+    ==========================================
+    -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        :root {
+            --primary: #272840;
+            --secondary: #4F5573;
+            --tertiary: #73624D;
+            --accent: #BFAE9F;
+            --light: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --verde-completado: #A8D08D;
+            --amarillo-plazo-original: #F5F352;
+            --naranja-extension1: #FFBA27;
+            --naranja-extension2: #FF8916;
+            --naranja-proceso: #F4B084;
+            --amarillo-no-iniciado: #FFE699;
+            --rojo-alto: #E74C3C;
+            --amarillo-medio: #F39C12;
+            --verde-bajo: #27AE60;
+            --border-subtle: rgba(39, 40, 64, 0.1);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        body::before {
+            content: '© AUDITAPH - Documento Protegido';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 72px;
+            color: rgba(39, 40, 64, 0.03);
+            z-index: 9999;
+            pointer-events: none;
+            white-space: nowrap;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #FFFFFF 100%);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--light);
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .logo-section img {
+            height: 80px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .header-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-title h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+        }
+
+        /* ===== TABS ===== */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            border-bottom: 2px solid var(--border-subtle);
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+        }
+
+        .tab::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tab:hover {
+            color: var(--primary);
+            background: rgba(79, 85, 115, 0.05);
+        }
+
+        .tab:hover::after {
+            transform: scaleX(1);
+        }
+
+        .tab.active {
+            color: var(--primary);
+            background: var(--light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab.active::after {
+            transform: scaleX(1);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== KPI CARDS ===== */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out 0.7s both;
+        }
+
+        .kpi-card {
+            background: var(--light);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .kpi-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .kpi-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kpi-value {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .kpi-label {
+            font-size: 0.95rem;
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-percentage {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-top: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* ===== CHART CONTAINER ===== */
+        .chart-container {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-subtle);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .chart-title {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .chart-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* ===== TABLA DE GASTOS ===== */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        table thead {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--light);
+        }
+
+        table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+        }
+
+        table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            transition: background 0.2s ease;
+        }
+
+        table tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        table tbody tr:hover {
+            background: rgba(79, 85, 115, 0.05);
+            box-shadow: inset 0 0 0 1px var(--border-subtle);
+        }
+
+        table tbody tr:last-child td {
+            border-bottom: 2px solid var(--secondary);
+            background: rgba(39, 40, 64, 0.02);
+        }
+
+        .valor-highlight {
+            color: var(--rojo-alto);
+            font-weight: 700;
+        }
+
+        /* ===== GANTT CHART ===== */
+        .gantt-wrapper {
+            overflow-x: auto;
+            margin-top: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .gantt-container {
+            min-width: 1200px;
+            padding: 2rem;
+            background: var(--light);
+        }
+
+        .gantt-header {
+            display: grid;
+            grid-template-columns: 280px repeat(12, 1fr);
+            gap: 2px;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .gantt-month {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 1rem;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        .gantt-row {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2px;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .gantt-task-name {
+            padding: 1rem;
+            background: rgba(79, 85, 115, 0.08);
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--primary);
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            word-break: break-word;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .gantt-task-name:hover {
+            background: rgba(79, 85, 115, 0.15);
+            transform: translateX(4px);
+        }
+
+        .gantt-timeline {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2px;
+            height: 50px;
+        }
+
+        .gantt-bar {
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .gantt-bar:hover {
+            box-shadow: var(--shadow-md);
+            transform: scaleY(1.1);
+        }
+
+        .bar-completado {
+            background: linear-gradient(90deg, var(--verde-completado), #8BC34A);
+        }
+
+        .bar-extension1 {
+            background: var(--naranja-extension1);
+            border: 2px solid #E6A31F;
+        }
+
+        .bar-extension2 {
+            background: var(--naranja-extension2);
+            border: 2px solid #E67812;
+        }
+
+        .bar-proceso {
+            background: linear-gradient(90deg, var(--naranja-proceso), #F5A470);
+        }
+
+        .bar-no-iniciado {
+            background: var(--amarillo-plazo-original);
+            border: 2px solid #E6DB3A;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar-container {
+            height: 8px;
+            background: var(--border-subtle);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            transition: width 0.5s ease;
+        }
+
+        /* ===== BADGES ===== */
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-nuevo {
+            background: #FF6B6B;
+            color: var(--light);
+        }
+
+        .badge-alto {
+            background: rgba(231, 76, 60, 0.15);
+            color: var(--rojo-alto);
+        }
+
+        .badge-medio {
+            background: rgba(243, 156, 18, 0.15);
+            color: var(--amarillo-medio);
+        }
+
+        .badge-bajo {
+            background: rgba(39, 174, 96, 0.15);
+            color: var(--verde-bajo);
+        }
+
+        .badge-completado {
+            background: rgba(168, 208, 141, 0.2);
+            color: #6B8E23;
+        }
+
+        .badge-en-proceso {
+            background: rgba(244, 176, 132, 0.2);
+            color: #B35806;
+        }
+
+        .badge-no-iniciado {
+            background: rgba(255, 230, 153, 0.3);
+            color: #7F6000;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, rgba(39, 40, 64, 0.05) 0%, rgba(79, 85, 115, 0.05) 100%);
+            padding: 0.8rem 0.6rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--light);
+            margin: 5% auto;
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: slideDown 0.3s ease;
+        }
+
+        .close {
+            color: var(--secondary);
+            float: right;
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .close:hover {
+            color: var(--primary);
+        }
+
+        .modal-title {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .detail-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .detail-section:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-size: 0.95rem;
+            color: var(--secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content {
+            color: var(--primary);
+            line-height: 1.8;
+        }
+
+        /* ===== INFORMACIÓN LEGAL ===== */
+        .legal-section {
+            background: rgba(39, 40, 64, 0.04);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            line-height: 1.7;
+        }
+
+        .legal-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== SELLO DE AUDITADO ===== */
+        .sello-auditado-section {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sello-auditado-section img {
+            height: 150px;
+            object-fit: contain;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .header-title h1 {
+                font-size: 2rem;
+            }
+
+            .header-info {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-section img {
+                height: 60px;
+            }
+
+            .chart-title {
+                font-size: 1.3rem;
+            }
+
+            table th, table td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body::before {
+                display: none;
+            }
+
+            .modal {
+                display: none !important;
+            }
+
+            .tabs, .close {
+                display: none;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .chart-container {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img id="logo" src="data:image/png;base64,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" alt="Logo AUDITAPH">
+            </div>
+            <div class="header-title">
+                <h1>INFORME EJECUTIVO DE AUDITORÍA</h1>
+            </div>
+            <div class="header-info">
+                <div class="info-item">
+                    <div class="info-label">Copropiedad</div>
+                    <div class="info-value" id="nombreCopropiedad">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">NIT</div>
+                    <div class="info-value" id="nitCopropiedad">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Corte</div>
+                    <div class="info-value" id="corteFecha">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container">
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab(event, 'resumen')">📊 Resumen Ejecutivo</button>
+            <button class="tab" onclick="switchTab(event, 'gastos-soporte')">💰 Gastos sin Soporte</button>
+            <button class="tab" onclick="switchTab(event, 'gastos-planilla')">📋 Gastos sin Planilla</button>
+            <button class="tab" onclick="switchTab(event, 'hallazgos')">🔍 Hallazgos</button>
+            <button class="tab" onclick="switchTab(event, 'subsanados')">✅ Subsanados</button>
+        </div>
+
+        <!-- TAB 1: RESUMEN EJECUTIVO -->
+        <div id="resumen" class="tab-content active">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon">📈</div>
+                    <div class="kpi-value" id="totalHallazgos">0</div>
+                    <div class="kpi-label">Hallazgos Identificados</div>
+                    <div class="kpi-percentage" id="pctHallazgos">-</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">✅</div>
+                    <div class="kpi-value" id="hallazgosCompletados">0</div>
+                    <div class="kpi-label">Hallazgos Subsanados</div>
+                    <div class="kpi-percentage" id="pctCompletados">-</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">⏳</div>
+                    <div class="kpi-value" id="hallazgosEnProceso">0</div>
+                    <div class="kpi-label">En Proceso</div>
+                    <div class="kpi-percentage" id="pctEnProceso">-</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">🔴</div>
+                    <div class="kpi-value" id="hallazgosNoIniciados">0</div>
+                    <div class="kpi-label">No Iniciados</div>
+                    <div class="kpi-percentage" id="pctNoIniciados">-</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">⚠️</div>
+                    <div class="kpi-value" id="gastosSinSoporte">$0</div>
+                    <div class="kpi-label">Gastos sin Soporte</div>
+                    <div class="kpi-percentage" id="kpi-requiere-accion" style="display: none;">Requiere acción</div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2 class="chart-title">Estado de Hallazgos por Categoría</h2>
+                <div id="resumen-grid"></div>
+            </div>
+        </div>
+
+        <!-- TAB 2: GASTOS SIN SOPORTE -->
+        <div id="gastos-soporte" class="tab-content">
+            <div class="chart-container">
+                <h2 class="chart-title">Revisión de Gastos sin Soporte Documental</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Proveedor</th>
+                                <th>Documento</th>
+                                <th>Valor</th>
+                                <th>Fecha de Causación</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-gastos-soporte">
+                            <!-- Datos cargados desde JSON -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" style="text-align: right; font-weight: 700;">TOTAL</td>
+                                <td class="valor-highlight" id="total-soporte">$0</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: GASTOS SIN PLANILLA -->
+        <div id="gastos-planilla" class="tab-content">
+            <div class="chart-container">
+                <h2 class="chart-title">Gastos sin Planilla de Seguridad Social</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Proveedor</th>
+                                <th>Documento</th>
+                                <th>Valor</th>
+                                <th>Fecha de Causación</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-gastos-planilla">
+                            <!-- Datos cargados desde JSON -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" style="text-align: right; font-weight: 700;">TOTAL</td>
+                                <td class="valor-highlight" id="total-planilla">$0</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: HALLAZGOS -->
+        <div id="hallazgos" class="tab-content">
+            <div class="chart-container">
+                <h2 class="chart-title">Timeline de Hallazgos y Compromisos</h2>
+                <div class="gantt-wrapper">
+                    <div class="gantt-container">
+                        <div id="gantt-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: SUBSANADOS -->
+        <div id="subsanados" class="tab-content">
+            <div class="chart-container">
+                <h2 class="chart-title">Hallazgos Subsanados</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hallazgo</th>
+                                <th>Categoría</th>
+                                <th>Impacto</th>
+                                <th>Fecha de Subsanación</th>
+                                <th>Extensiones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Datos cargados desde JSON -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SELLO DE AUDITADO -->
+                <!-- SELLO DE AUDITADO -->
+        <div class="sello-auditado-section">
+            <img src="data:image/png;base64,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" alt="Sello de Auditado AUDITAPH">
+            <p style="margin-top: 1.5rem; font-size: 1rem; color: var(--primary); font-weight: 600; text-align: center;">Revisor Fiscal: David Augusto Villarraga Cabrera</p>
+        </div>
+
+        <!-- OBSERVACIONES GENERALES -->
+        <div class="legal-section">
+            <div class="legal-title">📝 Observaciones Generales</div>
+            <div id="observaciones-variables" style="margin-bottom: 1.5rem; line-height: 1.7;"></div>
+            <div style="line-height: 1.7; color: var(--secondary);">
+                <p><strong>Notas Importantes:</strong></p>
+                <p>Este informe se basa exclusivamente en la información suministrada por la administración a la fecha de corte; la Revisoría Fiscal no asume responsabilidad por datos no entregados. Es posible que existan subsanaciones posteriores a la elaboración de este documento. La auditoría se ejecuta por etapas bajo las NIA, por lo que el alcance varía en cada fase. Este documento no constituye un dictamen.</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN LEGAL -->
+        <div class="legal-section">
+            <div class="legal-title">🔒 Protección de Contenido</div>
+            <p>El contenido de este informe es exclusivo para la copropiedad contratante y no está permitido su distribución fuera de esta. Este dashboard de auditoría, su estructura, composición, layout y su código fuente están protegidos por derechos de autor. Queda estrictamente prohibida su reproducción y distribución total o parcial, modificación, ingeniería inversa o uso no autorizado sin el consentimiento expreso de su autor. Las violaciones serán perseguidas conforme a la Ley 599 de 2000 en sus artículos 270, 271 y 272.</p>
+        </div>
+    </div>
+
+    <!-- MODAL DE DETALLES -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title" id="modal-title"></h2>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // ============================================
+        // DATOS - CARGAR DESDE EXCEL/JSON
+        // ============================================
+        
+        let datosEncabezado = {
+            nombreCopropiedad: `EDIFICIO TORRE K 5-23 PROPIEDAD HORIZONTAL`,
+            nitCopropiedad: `9010240761`,
+            corteFecha: `Noviembre/2025`,
+            observacionesGenerales: `Los gastos de la copropiedad estaban debidamente soportados y correspondían al objeto social de la copropiedad. Planillas de seguridad social no presentaron faltantes. `,
+            logoUrl: 'data:image/png;base64,UklGRroEAABXRUJQVlA4WAoAAAAwAAAAbQEAagAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZBTFBItgEAAAEPMP8REUJus22V7PwjAkJKoBFLtHIKsQzra1s4cugWsE4DbDaWEW8w8MP6bkcR/Z8A+ddbGZuG/2/KSyZkTRaRpz1PI+m6JiIvRQTbIIj0z1ydvJo0VeKQHGcYRYmTqqocUjVuZk8mZcHMOuB3ZNW5EhWN4ztgZhRJ1bAzFjrmUvxjjrUoqo5bMDOwA3Z9WDg2gV+wkxu4x1gRKdjuJHNIUhyaBEGVcZMM/lFW0qMy3+KsWBFFoYUtXxX94h9TuDP5gBXps8oZt9RtcUulcOw5Y90SV5oiVDacMWP2tE1hKcx84RiILmH39D3N73MZ8x0xixJEZNS94HR+ZhP2EpLKrfRJUjgVTrrfJTipXiSr7CStZMyOxCcIFQWKZ/CDonpWvNEV7rOqyJdYOCQPEk4VBqfqy8BIGeRZ5Zz1kDGDwh0oWKmDshAvCVUdBOncuNpJnBQ0lRP4yHXhjA14SBqYSdhyxssb1TFqoe9pgLnELcdKCyIZ24EwklH3ImVPwjbAD6IqY1a6v7gTsAM/wW0TXAHMwKkSdgU3SBBlcIxu2C3zEyd7d+3/g3Ln5UX5m8P0v6m//FZQOCAOAQAAsBcAnQEqbgFrAD5RII1EI6IhF8+UADgFBLS3cF4A5hoAH0AfwBP7StzwB/APwA/QD8/e/wiSPjA7a8sjApCc0ijd0Uzww3caxSWnW9YvrQU9H8d27N1Q2cyT0wgbLQsODG2QBckHfvYKnzkFyplLQr5gojmtTuAO2QxqZtMCWIrhk117ZSgQ526sTBUq6RekGDd3RTSG+TP6920EiG+LoSE3LQj3+hGBYRLPJKaVTqWRf8BsgR8YHbXlkUUr7m+d+dDGe5wAAP7oaIMv6JcjefRLo9+h9fql/+C0oeqX/4LQZn/0VAPs3HvwfLOD7JQ//q4ZH0Xp+ilfZb//6gvff0OYkjGwAOUAAAAAAAAA'
+        };
+
+        let gastosSinSoporte = [];
+        let gastosSinPlanilla = [];
+        let hallazgos = [
+            {
+                id: 1,
+                titulo: `Habeas Data`,
+                descripcion: `A pesar de las gestiones adelantadas en la implementación del régimen de protección de datos personales, estas resultan insuficientes y mantienen un riesgo sancionatorio debido a los siguientes incumplimientos:
+1. Deficiencias en los consentimientos informados:
+ No permiten al titular aprobar o improbar el tratamiento de sus datos según la finalidad específica.
+ Las finalidades contempladas son incompletas y, en algunos casos, demasiado generales. (Ejemplo: falta autorización para el envío de cuentas de cobro por email, grabación de imagen en asambleas, entre otros).
+2. Ausencia de documentos esenciales:
+ No se ha construido el Inventario de bases de datos ni su correspondiente Matriz de riesgos.
+ No se encontró evidencia de capacitación a la administración por parte del implementador.
+3. Falta de acuerdos con terceros:
+ No existe cláusula de Habeas Data en los contratos con proveedores que manejan datos personales, lo que impide determinar su responsabilidad tras la finalización de la relación comercial. Tampoco hay acuerdos de confidencialidad suscritos con los consejeros.
+4. Otros
+ Política de protección de datos personales no se encuentra publicada.
+ Pendiente por suscribir el documento de asignación como Responsable del Tratamiento al señor Administrador.
+`,
+                plan_accion: `Se recomienda la implementación completa del régimen de protección de datos personales, corrigiendo los hallazgos identificados. Para ello, se sugiere la contratación de un proveedor especializado en la materia.`,
+                riesgos: `1. Riesgo Sancionatorio: Exposición inminente a multas y sanciones de la SIC por incumplimiento normativo.
+2.Recolección Ilegal: Tratamiento de datos sin consentimiento válido por falta de avisos de privacidad públicos.
+3. Indefensión ante Terceros: Responsabilidad legal total sobre el mal uso de datos por parte de proveedores (al no existir cláusulas contractuales).
+4. Fuga de Información: Alta probabilidad de divulgación no autorizada por consejeros y personal sin acuerdos de confidencialidad ni capacitación.
+5. Gestión Ciega de Seguridad: Imposibilidad de prevenir ataques o fugas al carecer de un inventario de datos y una matriz de riesgos.
+6. Falta de Accountability: Incapacidad de demostrar diligencia debida ante una investigación, agravando cualquier penalidad.`,
+                normativa: `Ley 1581 de 2012`,
+                estado: `En Proceso`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: `2025-12`,
+                fecha_compromiso_nueva: `2026-01`,
+                extensiones: 1,
+                es_nuevo: false
+            },{
+                id: 2,
+                titulo: `Procedimientos NTS SI 02`,
+                descripcion: `Se identificó que la administración no ha establecido ni formalizado los procedimientos estandarizados requeridos por la norma para garantizar el control interno. Especialmente, se evidencian vacíos en la documentación de procesos críticos para:
+Gestión Documental y Registros: Aprobación, custodia, retención y disposición final (Ref. Num 4.7 y 4.8).
+Gestión Financiera: Presupuestos, control contable y obligaciones tributarias (Ref. Num 5.1).
+Mantenimiento: Cronogramas y actividades de preservación de activos (Ref. Num 5.7).
+Continuidad de la Administración: Protocolos de empalme, recepción y entrega del cargo (Ref. Num 5.9).
+Entre otros.`,
+                plan_accion: `Diseñar, documentar e institucionalizar los manuales de procedimientos para las áreas citadas. El objetivo es desvincular la operación de la persona (el administrador de turno) y anclarla a procesos institucionales, asegurando la trazabilidad, el control interno y la preservación del conocimiento (empalme) ante futuros cambios en la administración.`,
+                riesgos: `1. Pérdida de Memoria Institucional y Capital Intelectual: La inexistencia de protocolos de empalme (Num 5.9) genera una fuga crítica de información cada vez que cambia la administración. Esto obliga a la copropiedad a iniciar "desde cero" (reprocesos), perdiendo el histórico de gestiones, negociaciones y conocimientos adquiridos.
+2. Discontinuidad Operativa y Falta de Trazabilidad: Al no existir procedimientos estandarizados para el mantenimiento (Num 5.7) y la gestión documental (Num 4.7/4.8), la operación depende exclusivamente del criterio subjetivo del administrador actual. Esto impide realizar un seguimiento auditoriable y pone en riesgo la conservación del patrimonio y los activos de la copropiedad.
+3. Vulnerabilidad Financiera y Tributaria: La falta de formalización en los controles contables y presupuestales (Num 5.1) incrementa el riesgo de errores en el cumplimiento de obligaciones fiscales, pudiendo derivar en sanciones, multas o desviaciones de recursos no detectadas a tiempo.
+4. Debilidad en el Gobierno Corporativo (Ausencia de Control): La carencia de reglas claras dificulta la supervisión por parte del Consejo. Sin un estándar contra el cual medir la gestión, se crea un ambiente de discrecionalidad excesiva que impide evaluar objetivamente el desempeño del administrador.`,
+                normativa: `NTS SI 02`,
+                estado: `No Iniciado`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: ``,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 3,
+                titulo: `Planes de Trabajo NTS SI 02`,
+                descripcion: `No se encontró evidencia de la construcción de un plan de trabajo conforme la norma técnica, donde se plasmen las actividades a realizar por un periodo determinado para los aspectos requeridos, los cuales son los siguientes:
+	De convivencia.
+	Jurídicos
+	Administrativos
+	Financieros
+	Operativos
+	Seguridad y Prevención.`,
+                plan_accion: `Construir plan de trabajo conforme la norma para el periodo 2024 – 2025. Esto permitirá efectuar un seguimiento a la gestión del administrador por sus labores efectivamente realizadas, disminuyendo el factor subjetivo. Este plan debe ser construido y aprobado por el Consejo de Administración. `,
+                riesgos: `Deterioro Patrimonial (Riesgo Operativo): Al no haber un cronograma de mantenimiento preventivo, se opera de forma reactiva ("apaga-incendios"), lo que encarece los arreglos y desvaloriza el inmueble.
+Ineficiencia Financiera: El presupuesto se ejecuta según la urgencia del día y no según lo planeado, generando sobrecostos y posible desvío de recursos.
+Vulnerabilidad Legal y de Seguridad: Se eleva la probabilidad de omitir obligaciones legales (vencimiento de pólizas, certificaciones SG-SST) o descuidar protocolos de seguridad por falta de seguimiento.
+Falta de Gobernabilidad (El riesgo subjetivo): El Consejo de Administración pierde el control. Sin un plan aprobado, es imposible evaluar objetivamente si el administrador cumplió o no, dificultando su remoción o sanción por incumplimiento.`,
+                normativa: `NTS SI 02`,
+                estado: `Completado`,
+                impacto: `Medio`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: `2025-07`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 4,
+                titulo: `Conciliaciones Bancarias`,
+                descripcion: `Se identificó que el proceso de conciliación bancaria carece de la debida formalización documental. A la fecha, no reposan en archivo físico los extractos bancarios cruzados con los libros auxiliares contables, ni las respectivas hojas de trabajo de conciliación. Más crítico aún, no existe evidencia de revisión (firmas o vistos buenos) por parte de la Administración ni del Consejo de Administración. Actualmente, los estados financieros se están generando sin una validación supervisada de la disponibilidad real de efectivo, dependiendo exclusivamente del criterio del área contable.`,
+                plan_accion: `Institucionalizar el cierre mensual de tesorería mediante la creación de una Carpeta de Conciliaciones. Este procedimiento debe ser de cumplimiento obligatorio e incluir:
+1. Impresión mensual de la conciliación, el extracto bancario y el auxiliar contable.
+2. Protocolo de Firmas: El documento debe contar con la firma de elaboración (Contador), revisión (Administrador) y aprobación/validación (Consejero designado o Tesorero). Esta medida es indispensable para romper la dependencia funcional entre el Contador y el Administrador, garantizando un control externo por parte del Consejo.`,
+                riesgos: `1. Riesgo de Fraude y Malversación de Activos ("Jineteo"): La falta de revisión externa de los extractos permite la manipulación de saldos. Esto facilita prácticas como el "jineteo de fondos" (cubrir faltantes con ingresos posteriores) o la ocultación de retiros no autorizados, los cuales pueden permanecer indetectados durante meses si nadie coteja el banco contra la contabilidad.
+2. Falta de Razonabilidad Financiera (Información Errónea): Sin conciliaciones firmadas y revisadas, los Estados Financieros presentados a la Asamblea podrían no reflejar la realidad económica de la copropiedad. Partidas conciliatorias antiguas o errores bancarios no reclamados distorsionan el saldo real de caja, llevando a tomar decisiones presupuestales basadas en dinero que no existe.
+3. Responsabilidad Solidaria del Consejo (Culpa in vigilando): El Consejo de Administración tiene el deber de supervisar la gestión económica. Aprobar gastos o estados financieros sin haber visto la evidencia física de que la plata en bancos coincide con la contabilidad, expone a los consejeros a responder con su propio patrimonio en caso de un desfalco, por no haber ejercido su deber de vigilancia.`,
+                normativa: ``,
+                estado: `En Proceso`,
+                impacto: `Alto`,
+                categoria: `Control Interno`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: `2025-12`,
+                fecha_compromiso_nueva: `2026-01`,
+                extensiones: 1,
+                es_nuevo: false
+            },{
+                id: 5,
+                titulo: `Póliza de protección digital`,
+                descripcion: `Teniendo en cuenta:
+1. El incremento de fraudes electrónicos efectuados por hackers a propiedades horizontales sin necesidad de usuarios, contraseñas, ni tokens.
+2. La proliferación actual de cursos para la creación de malware y hackeo anunciado en plataformas como Udemy.
+3. La posibilidad que actualmente existe de efectuar pagos por PSE sin la necesidad de un aprobador.
+`,
+                plan_accion: `Se recomienda proteger a la copropiedad con la adquisición de una póliza de protección digital, que le permita a la copropiedad cubrirse de pérdidas millonarias por ataques cibernéticos. Adicionalmente se recomienda cerrar la posibilidad de efectuar pagos por PSE, que a su vez permite efectuar transferencias a través de portales como Nequi, etc. `,
+                riesgos: `1. Desfalco Patrimonial por Cibercrimen: Alta probabilidad de pérdida masiva de recursos financieros debido a la sofisticación de ataques (malware, phishing o ingeniería social) que eluden las medidas de seguridad básicas. Al no requerir tokens o doble autenticación en ciertos canales, el vaciamiento de las cuentas puede ocurrir en minutos sin generar alertas inmediatas.
+2. Indefensión Financiera (Ausencia de Transferencia del Riesgo): Al no contar con una póliza de protección digital, la copropiedad asume el 100% de la pérdida en caso de fraude. Dado que las entidades bancarias suelen exonerarse de responsabilidad si se utilizaron las claves correctas (aunque hayan sido robadas), la recuperación del dinero es improbable, afectando gravemente el patrimonio común.
+3. Parálisis Operativa e Insolvencia Súbita: Un ataque exitoso que drene la tesorería dejaría a la copropiedad sin liquidez inmediata para cubrir vigilancia, servicios públicos y mantenimientos, generando una crisis operativa y de seguridad física instantánea.`,
+                normativa: ``,
+                estado: `No Iniciado`,
+                impacto: `Alto`,
+                categoria: `Control Interno`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: ``,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 6,
+                titulo: `Anclajes Certificados`,
+                descripcion: `No dispone de anclajes certificados en su estructura, lo que incrementa el riesgo de accidentes y genera una responsabilidad solidaria en caso de incidentes con contratistas.`,
+                plan_accion: `Gestionar la adquisición de anclajes certificados.`,
+                riesgos: `Responsabilidad legal y sanciones: Según la Resolución 4272 de 2021, la copropiedad debe garantizar condiciones seguras para el trabajo en alturas, lo que lo convierte en responsable solidario en indemnizaciones de alto costo. La omisión de estas medidas puede generar sanciones por parte del Ministerio del Trabajo.
+Suspensión de actividades: Una inspección de seguridad podría derivar en la prohibición de trabajos en altura hasta que se implementen las medidas de seguridad requeridas.`,
+                normativa: `Resolución  4272/2021 Mintrabajo`,
+                estado: `No Iniciado`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: `2026-01`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 7,
+                titulo: `Monitoreo de PQR`,
+                descripcion: `Se identificó que la administración no cuenta con un mecanismo formal de seguimiento para la atención de Peticiones, Quejas y Reclamos (PQR). La ausencia de un sistema estructurado de monitoreo puede afectar la trazabilidad, gestión oportuna y resolución efectiva de las solicitudes presentadas por los copropietarios y residentes.`,
+                plan_accion: `Implementar un sistema digital de radicación mediante códigos QR enlazados a un formulario institucional (ej. Google Forms). Punto Crítico: Se debe habilitar el acceso de "solo lectura" a la base de datos resultante (hoja de cálculo) para los miembros del Consejo de Administración. Esto permitirá al cuerpo colegiado ejercer su función de control en tiempo real, verificando el estado de los casos (abiertos/cerrados), los tiempos de respuesta y evitando que las solicitudes queden sin solución por omisión administrativa.`,
+                riesgos: `1. Ineficacia Administrativa Oculta: Al no existir monitoreo externo, el administrador puede ocultar, ignorar o dilatar la gestión de solicitudes complejas o incómodas. Esto genera una "gestión ciega" donde el Consejo desconoce los problemas reales de la comunidad hasta que escalan a conflictos mayores.
+2. Responsabilidad Solidaria por "Culpa in Vigilando": El Consejo de Administración tiene el deber legal de supervisar la gestión. Si una PQR no atendida (ej. un arreglo locativo urgente) deriva en un perjuicio mayor o una demanda, los consejeros podrían ser solidariamente responsables por no haber ejercido los controles necesarios sobre la administración.
+3. Riesgo Jurídico y de Silencio Administrativo: La falta de alertas tempranas y seguimiento aumenta la probabilidad de vencer los términos legales para responder Derechos de Petición (10, 15 o 30 días según la ley colombiana), exponiendo a la copropiedad a tutelas y sanciones por vulneración de derechos fundamentales.
+4. Desgaste de la Legitimidad del Consejo: Si los copropietarios perciben que sus quejas no se resuelven y que el Consejo "no hace nada" (porque no se entera), se deteriora la gobernabilidad y la confianza en el cuerpo colegiado, generando asambleas conflictivas.`,
+                normativa: `Ley Estatutaria 1755 de 2015.`,
+                estado: `Completado`,
+                impacto: `Alto`,
+                categoria: `Control Interno`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: `2025-07`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 8,
+                titulo: `Política de Cartera`,
+                descripcion: `Ausencia de lineamientos para las etapas de cobro (prejurídico y jurídico) y determinación de quien asume los costos de cobranza (honorarios, trámites y certificados).`,
+                plan_accion: `Establecer un marco jurídico y administrativo claro para la gestión de cartera, garantizando la liquidez y protegiendo el presupuesto del conjunto.`,
+                riesgos: `1. Riesgo de Liquidez: El retraso en la recuperación de cartera por falta de procesos estandarizados afecta el flujo de caja necesario para cumplir con las obligaciones operativas de la copropiedad. 2. Inseguridad Jurídica: La falta de reglas claras puede dar lugar a impugnaciones o reclamaciones por parte de los copropietarios ante procesos de cobro percibidos como arbitrarios o inconsistentes.  `,
+                normativa: ``,
+                estado: `En Proceso`,
+                impacto: `Alto`,
+                categoria: `Control Interno`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: `2026-01`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 9,
+                titulo: `Propiedad Planta y Equipo`,
+                descripcion: `Se evidenció que la copropiedad posee bienes que cumplirían con los criterios de reconocimiento bajo NIIF, sin embargo, estos no han sido incluidos en los estados financieros. Así mismo, no se cuenta con un inventario detallado que permita conocer la composición de los activos fijos, incluyendo su descripción, cantidad, costo histórico, vida útil, depreciación acumulada y gasto por depreciación.
+Dado que no se dispone de un inventario detallado de los activos de PPE, no es posible verificar la existencia y valuación de estos bienes dentro de los estados financieros. Esto impide evaluar su impacto en la presentación razonable de la información financiera, lo que constituye una limitación en el alcance sobre los rubros de Activos Fijos y Gasto por Depreciación. Adicionalmente, los activos registrados se encuentran totalmente depreciados, asiendo aún utilizados por la copropiedad.
+Medición de Propiedad, Planta y Equipo:
+La copropiedad debe reconocer los elementos de PPE al costo de adquisición menos cualquier descuento, rebaja o bonificación. Además, la depreciación de estos activos debe calcularse en función de la vida útil estimada y registrada en los estados financieros. En caso que los activos se hayan recibido mediante una cesión a título gratuito con un tercero no vinculado, ni relacionado de forma contractual, la copropiedad deberá elaborar una política contable teniendo en cuenta lo establecido en la Sección 24 de NIIF para las Pymes.
+Depreciación y deterioro:
+Si la copropiedad opta por reconocer la adquisición de estos activos como PPE, es obligatorio aplicar una política de depreciación, determinada con base en la estimación de su vida útil. Además, cualquier deterioro de valor debe ser registrado en el estado de resultados.`,
+                plan_accion: `1. Realizar un levantamiento físico de los activos fijos a través de un tercero especializado. 2. Registrar adecuadamente los activos en los estados financieros conforme a los principios contables aplicables.`,
+                riesgos: `Adicional al tema de limitación en el alcance sobre los rubros indicados, en caso de un siniestro sobre los mismos, se podría presentar dificultad para la copropiedad al justificar la titularidad de los bienes, por lo que la aseguradora podría solicitar pruebas adicionales sobre su propiedad, aumentando el tiempo de respuesta en caso de un siniestro o eventualmente, exponer los bienes a un vacío por cobertura. `,
+                normativa: `Orientación Técnica No. 15 del CTCP`,
+                estado: `No Iniciado`,
+                impacto: `Alto`,
+                categoria: `Razonabilidad EEFF`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: ``,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 10,
+                titulo: `Antivirus`,
+                descripcion: `Durante nuestra visita inicial de auditoría, fue posible evidenciar en ordenadores del área administrativa, la carencia de un antivirus instalado.`,
+                plan_accion: `Se recomienda instalar antivirus en todos los ordenadores de la copropiedad, así como el uso de VPNs y teclados virtuales al momento de efectuar transacciones bancarias. `,
+                riesgos: `1. Exposición a malware y ciberataques: La ausencia de un antivirus incrementa la probabilidad de infecciones por software malicioso, poniendo en riesgo información financiera y operativa. 2. Fraudes financieros: Un sistema sin protección puede facilitar ataques dirigidos a interceptar credenciales bancarias o modificar transacciones electrónicas. 3. Pérdida de datos críticos: Un ciberataque podría comprometer la integridad de los archivos administrativos y contables, afectando la operatividad y trazabilidad de la información. 4. Riesgo ampliado por conexiones remotas y uso de PSE: Considerando el hallazgo previo sobre seguridad digital, la combinación de transacciones bancarias sin seguridad adicional y equipos desprotegidos potencia el riesgo de fraudes y accesos no autorizados.`,
+                normativa: ``,
+                estado: `No Iniciado`,
+                impacto: `Medio`,
+                categoria: `Control Interno`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: ``,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 11,
+                titulo: `Publicación Actas Consejo`,
+                descripcion: `Se evidenció que no se está cumpliendo con la obligación de publicar las actas del Consejo de Administración, conforme lo establece el Artículo 68, Literal d. Esta falta de divulgación impide que los copropietarios estén informados sobre las decisiones tomadas y afecta la transparencia en la gestión.`,
+                plan_accion: `Implementar la publicación periódica de boletines del Consejo de Administración, con un resumen de los aspectos más relevantes de cada acta, garantizando el acceso a la información sin comprometer temas de carácter reservado.`,
+                riesgos: `1. Riesgo jurídico y de gobernabilidad: La ausencia de actas firmadas y formalizadas compromete la validez legal de las decisiones adoptadas, lo que puede dar lugar a nulidades, disputas internas o procesos judiciales por parte de terceros que cuestionen la legitimidad de las actuaciones de la administración o del consejo. Genera riesgos de responsabilidad para los administradores y consejeros, al no poder justificar sus actuaciones.
+2. Riesgo operativo: La falta de trazabilidad de decisiones impide verificar el cumplimiento de instrucciones, aprobación de presupuestos, proyectos, contratos o ajustes de cuotas de administración, dificultando la ejecución efectiva de la gestión.
+3. Riesgo para la revisoría fiscal y los órganos de control:
+La ausencia de soporte documental formalizado limita el alcance de la auditoría, imposibilitando validar de forma plena la legalidad y oportunidad de las decisiones tomadas en los órganos de dirección de la copropiedad.`,
+                normativa: `Artículo 68, Literal d, RPH.`,
+                estado: `En Proceso`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: `2025-12`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 12,
+                titulo: `Programa de Prevención y Protección contra Caídas en Alturas`,
+                descripcion: `Se evidenció que la copropiedad no cuenta con un Programa de Prevención y Protección contra Caídas en Alturas (PPCA), a pesar de que las labores en altura son recurrentes. `,
+                plan_accion: `Diseñar e implementar el PPCA y garantizar que todo contratista cumpla con los estándares de seguridad vigentes. `,
+                riesgos: `1. Responsabilidad Civil y Penal: Demandas por perjuicios (daño emergente, lucro cesante y daño moral) y posibles investigaciones penales contra el Representante Legal y el Consejo, por negligencia u omisión en el deber de cuidado. 2. Impacto Presupuestal: Gastos imprevistos de alta cuantía por concepto de defensas jurídicas e indemnizaciones no cubiertas por pólizas debido al incumplimiento normativo. 3. Riesgo Vital: Alta probabilidad de fatalidades o lesiones incapacitantes permanentes debido a la improvisación en los métodos de sujeción.`,
+                normativa: `Resolución  4272/2021 Mintrabajo`,
+                estado: `No Iniciado`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: ``,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 13,
+                titulo: `Censo de mascotas`,
+                descripcion: `No se evidencia registro de caninos que permita efectuar seguimiento a la suscripción de la póliza para aquellos considerados de "manejo especial".`,
+                plan_accion: `La copropiedad en cabeza de la administración, deberá controlar el registro y solicitar a los propietarios de caninos considerados de “manejo especial”, la respectiva póliza de responsabilidad extracontractual que con este reciente decreto, se hace de obligatorio cumplimiento.
+Para efectos de la ley se entenderán como caninos de “manejo especial” los siguientes:
+1. Caninos que han tenido episodios de agresiones a personas; o le hayan causado la muerte a otros perros. 
+2. Caninos que han sido adiestrados para el ataque y la defensa.
+3. Caninos que pertenecen a una de las siguientes razas o a sus cruces o híbridos: American Staffordshire Terrier, Bullmastiff, Dóberman, Dogo Argentino, Dogo de Burdeos, Fila Brasileiro, Mastín Napolitano, Bull Terrier, Pit Bull Terrier, American Pit Bull Terrier, de presa canario, Rottweiler, Staffordshire Terrier, Tosa Japonés y aquellas nuevas razas o mezclas de razas que el Gobierno nacional determine. Se recomienda crear formato de registro de caninos, incluyendo campos relacionados con su tenencia tales como: raza, si se encuentra en la clasificación, No. de Póliza, Vigencia, Antecedentes, etc.`,
+                riesgos: `1. Riesgo legal: El incumplimiento de la obligación de registro y control de pólizas podría dar lugar a responsabilidad compartida o solidaria de la copropiedad en caso de incidentes con animales clasificados de manejo especial. 2. Riesgo de convivencia: La ausencia de medidas preventivas frente a caninos agresivos puede derivar en conflictos entre vecinos, deterioro de la convivencia y quejas ante entes de control.`,
+                normativa: `Decreto 380 de 2022 Mindefensa`,
+                estado: `Completado`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: `2025-06`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 14,
+                titulo: `Lugar de custodia de CDTs`,
+                descripcion: `Durante el proceso de verificación de activos financieros, se constató que los Certificados de Depósito a Término (CDT) no se encuentran bajo custodia en la oficina de administración ni en una caja de seguridad institucional. Dentro de los principios de Control Interno, los activos de la entidad deben estar debidamente protegidos, asegurados y localizados en el domicilio legal de la persona jurídica.`,
+                plan_accion: `1. Realizar el traslado físico de los títulos a la oficina del conjunto. 2. Adquirir una caja fuerte ignífuga (resistente al fuego) para la oficina de administración, con acceso restringido y bajo llave. `,
+                riesgos: `1. Riesgo de Pérdida o Deterioro: Exposición a siniestros en el domicilio particular (incendio, inundación, pérdida física) que dificulten el cobro o reposición del título ante la entidad bancaria. 2. Riesgo de Fraude o Uso Indebido: La falta de control dual y la tenencia exclusiva por parte de una sola persona facilita posibles maniobras de endoso o pignoración no autorizada. 3. Riesgo de Ilocalización: En caso de ausencia repentina o cese de funciones del administrador, la copropiedad no tendría acceso inmediato a sus recursos financieros. 4. Riesgo Legal: Incumplimiento de los deberes de diligencia y cuidado de los bienes ajenos, lo cual podría derivar en responsabilidad civil para el administrador y el Consejo de Administración por omisión en la supervisión.`,
+                normativa: `Artículo 51 Ley 675/2001`,
+                estado: `Completado`,
+                impacto: `Alto`,
+                categoria: `Control Interno`,
+                fecha_identificacion: `2025-05`,
+                fecha_compromiso: `2025-05`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 15,
+                titulo: `Publicación extemporánea de Acta de Asamblea`,
+                descripcion: `Publicación extemporánea de Acta de Asamblea
+Se evidenció que, a la fecha de la presente auditoría, no se ha efectuado de manera oportuna la publicación del acta correspondiente a la asamblea general de copropietarios celebrada el 5 de abril de 2025, incumpliendo los términos establecidos en la normatividad vigente.
+
+Criterio:
+De acuerdo con el artículo 47 de la Ley 675 de 2001, cuando la asamblea general de copropietarios encarga a una comisión la verificación y aprobación del acta, dicha comisión debe cumplir dicha labor dentro de los veinte (20) días hábiles siguientes a la fecha de la respectiva reunión; asimismo, la norma dispone que en el mismo plazo, el administrador deberá poner a disposición de los propietarios una copia completa del texto del acta, y dejar constancia en el libro de actas sobre la fecha y lugar de su publicación. La entrega de dicha copia constituye prueba suficiente de los hechos consignados.
+
+Efecto:
+El incumplimiento del plazo legal para la publicación del acta de asamblea expone a la copropiedad a los siguientes riesgos:
+• Desconocimiento generalizado de las decisiones adoptadas, lo que puede afectar la ejecución oportuna de acciones administrativas o presupuestales.
+• Potenciales impugnaciones por falta de publicidad y transparencia, afectando la gobernabilidad interna.
+• Afectación de la trazabilidad y soporte documental de la gestión administrativa.
+
+Causa:
+Retrasos en la verificación o validación del acta por parte de la comisión designada o falta de gestión oportuna por parte de la administración para garantizar su publicación en los plazos estipulados por la ley.
+`,
+                plan_accion: `1. Dar cumplimiento estricto a lo dispuesto en el artículo 47 de la Ley 675 de 2001, garantizando que la redacción, verificación y publicación del acta de asamblea se realice dentro de los veinte (20) días hábiles siguientes a la celebración de la misma, dejando constancia en el libro de actas sobre su publicación.
+2. Para futuras asambleas, se recomienda que la solicitud de revisión del acta por parte de la comisión verificadora se acompañe de una cláusula de silencio administrativo positivo, de modo que si en un plazo previamente definido (por ejemplo, cinco días hábiles) no se reciben observaciones por parte de la comisión, se entienda validado el contenido del acta por parte de los verificadores designados, permitiendo su publicación dentro del término legal sin dilaciones.
+`,
+                riesgos: `1. Riesgo jurídico y de gobernabilidad: La ausencia de actas firmadas y formalizadas compromete la validez legal de las decisiones adoptadas, lo que puede dar lugar a nulidades, disputas internas o procesos judiciales por parte de terceros que cuestionen la legitimidad de las actuaciones de la administración o del consejo. Genera riesgos de responsabilidad para los administradores y consejeros, al no poder justificar sus actuaciones.
+2. Riesgo operativo: La falta de trazabilidad de decisiones impide verificar el cumplimiento de instrucciones, aprobación de presupuestos, proyectos, contratos o ajustes de cuotas de administración, dificultando la ejecución efectiva de la gestión.
+3. Riesgo para la revisoría fiscal y los órganos de control:
+La ausencia de soporte documental formalizado limita el alcance de la auditoría, imposibilitando validar de forma plena la legalidad y oportunidad de las decisiones tomadas en los órganos de dirección de la copropiedad.`,
+                normativa: `Artículo 47 de la Ley 675 de 2001.`,
+                estado: `Completado`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-06`,
+                fecha_compromiso: `2025-08`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 16,
+                titulo: `Publicación desactualizada de consignaciones pendientes por identificar`,
+                descripcion: `Se evidenció que no se ha continuado con la publicación periódica del listado de consignaciones pendientes por identificar, siendo el último corte divulgado correspondiente al mes de febrero de 2025. Desde esa fecha, no se han actualizado ni comunicado públicamente nuevos reportes que permitan a los copropietarios verificar el estado de sus pagos no aplicados o erróneamente registrados.
+1. Criterio:
+Dentro de los principios de transparencia y adecuada gestión financiera en propiedad horizontal, es fundamental garantizar la divulgación continua y oportuna de la información relacionada con pagos no identificados, con el fin de facilitar su correcta aplicación, evitar acumulación de saldos no compensados en cartera y prevenir reclamaciones innecesarias. Lo anterior se encuentra alineado con los deberes generales del administrador establecidos en el artículo 51 de la Ley 675 de 2001, en cuanto a la correcta administración de los recursos de la copropiedad, la claridad en la rendición de cuentas y el deber de mantener informados a los propietarios.
+`,
+                plan_accion: `1. Retomar de manera inmediata la actualización y publicación mensual del reporte de consignaciones no identificadas, asegurando su inclusión en los medios oficiales de comunicación de la copropiedad. 2. Igualmente, se sugiere establecer un cronograma fijo y de obligatorio cumplimiento para su divulgación, con el fin de garantizar su permanencia y oportunidad como parte de los controles financieros del proceso de recaudo.`,
+                riesgos: `1. Dificultades en la conciliación de cartera y en la trazabilidad de ingresos.
+2. Afectación al flujo de caja, al mantener recursos improductivos en cuentas no aplicadas.
+3. Posibles reclamos por parte de propietarios, en caso de cobros indebidos o falta de aplicación de pagos realizados.
+4. Desconfianza en la gestión administrativa, por la falta de visibilidad y transparencia sobre el tratamiento de los pagos
+`,
+                normativa: `Artículo 51 Ley 675/2001`,
+                estado: `Completado`,
+                impacto: `Alto`,
+                categoria: `Control Interno`,
+                fecha_identificacion: `2025-06`,
+                fecha_compromiso: `2025-09`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 17,
+                titulo: `Pruebas de Potabilidad`,
+                descripcion: `Durante la revisión documental y de cumplimiento normativo de la copropiedad, se evidenció que no se encontró soporte alguno sobre la realización de pruebas de potabilidad en los tanques de almacenamiento de agua potable, ni evidencia de análisis físico-químicos o microbiológicos durante el período fiscal auditado.`,
+                plan_accion: `Programar de manera inmediata la realización de pruebas físico-químicas y microbiológicas del agua contenida en los tanques de reserva, a través de laboratorios autorizados por el Ministerio de Salud.
+Divulgar los resultados de las pruebas a los residentes, como medida de transparencia y tranquilidad colectiva.`,
+                riesgos: `Responsabilidad Penal y Civil (El riesgo más alto): Si ocurre un brote de enfermedad (ej. E. Coli o gastroenteritis masiva) en el edificio, el administrador puede enfrentar demandas por lesiones personales culposas. La prueba de potabilidad es su único "seguro" para demostrar que el agua no fue la causa.`,
+                normativa: `1. Decreto 1575 de 2007.
+2. Resolución 2115 de 2007.`,
+                estado: `No Iniciado`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-06`,
+                fecha_compromiso: ``,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 18,
+                titulo: `Certificación Red Contra Incendios`,
+                descripcion: `Durante la auditoría se identificó que la copropiedad no cuenta con registros ni evidencias de haber realizado pruebas pitométricas u otras verificaciones técnicas periódicas que permitan confirmar la funcionalidad, presión y operatividad adecuada de la red contra incendios instalada.
+Esta omisión representa una debilidad en los controles de seguridad humana, dado que no se puede asegurar técnicamente que el sistema responda de forma eficaz en caso de emergencia, afectando la integridad de las personas y los bienes comunes.
+`,
+                plan_accion: `1. Programar y documentar una prueba pitométrica o técnica equivalente de la red contra incendios, realizada por proveedor especializado y autorizado.
+2. Solicitar concepto técnico del Cuerpo Oficial de Bomberos que verifique el cumplimiento de las condiciones de seguridad y operatividad del sistema.
+3. Implementar un plan de mantenimiento preventivo y correctivo sobre la red, con periodicidad mínima anual.
+4. Registrar y archivar formalmente todos los informes técnicos y conceptos, asegurando su disponibilidad para revisiones futuras.
+5. Actualizar el Manual de Emergencias y el Plan de Seguridad con base en los resultados de dichas pruebas. 
+`,
+                riesgos: `1. Pérdida de Cobertura (Seguros): Alta probabilidad de que la aseguradora objete el pago de una indemnización por incendio, algando negligencia en el mantenimiento de los sistemas de protección (Incumplimiento de garantía). 2. Falla Operativa Catastrófica: Riesgo de que la red no alcance la presión o caudal hidraúlico necesarios en una emergencia, impidiendo la extinción del fuego y derivando en la pérdida total del inmueble. 3. Responsabilidad Penal y Civil: El Administrador y el Consejo, asumen responsabilidad directa por las pérdidas de vidas o bienes, al no garantizar la operatividad certificada de los equipos de seguridad humana. 4. Falsa Sensación de Seguridad: La comunidad confia en un sistema que podría estar inoperante (tuberías obstruidas, válvulas cerradas o bombas averiadas), retrasando la evacuación o la respuesa efectiva.  `,
+                normativa: `1. NSR-10 (Título J): Establece requisitos mínimos de protección contra incendios para edificaciones, incluyendo la exigencia de redes hidráulicas funcionales según el tipo y uso de la construcción.
+2. Ley 1575 de 2012 (Ley General de Bomberos): Faculta a los cuerpos oficiales de bomberos para inspeccionar y certificar las condiciones de seguridad humana, incluyendo la red contra incendios.
+3. Decreto 1077 de 2015: Compila el Reglamento Técnico de Construcción en el cual se exige mantener en condiciones óptimas los sistemas de protección.
+4. Buenas prácticas técnicas (NFPA 25): Recomiendan pruebas regulares como las pitométricas, para medir caudal, presión y verificar el adecuado estado del sistema.
+`,
+                estado: `En Proceso`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-06`,
+                fecha_compromiso: `2025-11`,
+                fecha_compromiso_nueva: `2026-01`,
+                extensiones: 1,
+                es_nuevo: false
+            },{
+                id: 19,
+                titulo: `RPH Decreto 768 Julio 7 2025`,
+                descripcion: `Verificado el Reglamento de Propiedad Horizontal (RPH) vigente, se evidenció que sus disposiciones no se encuentran armonizadas con el Decreto 768 del 7 de julio de 2025. Este desfase normativo genera riesgos significativos para la copropiedad, dado lo siguiente:
+1. El RPH omite la obligación explícita del Art. 2.2.8.18.12.1.6 de ser actualizado para garantizar que las autoridades de policía puedan actuar sin ambigüedad. Ya no se puede dejar el reglamento sin las actualizaciones en materia normativa que la Asamblea o demás estamentos hayan determinado como nuevas.
+2. No se contempla la obligación de mantener una copia actualizada del RPH y un censo de animales de compañía a disposición de las autoridades de policía para su consulta en recepción. Las normas sobre tenencia de mascotas no están alineadas con las nuevas exigencias, como la verificación del registro municipal y la póliza de responsabilidad civil para caninos de manejo especial.
+3. Los procedimientos disciplinarios internos no consideran la prohibición del Art. 2.2.8.18.12.1.1 sobre el uso de pruebas (videos, fotos) que vulneren la privacidad de la habitación.
+El RPH no regula el tratamiento de las actividades de esparcimiento que, por su permanencia, puedan ser consideradas actividades económicas y deban cumplir con los requisitos de la Ley 1801 de 2016.
+4. No se ha comunicado a los propietarios el mecanismo de cumplimiento forzoso mediante orden de policía del alcalde para la entrega de actas de asamblea, ni la consecuencia de considerar su inobservancia como un comportamiento contrario a la convivencia.
+5. El RPH podría contener restricciones sobre modificaciones a las ventanas que ahora son explícitamente permitidas por el decreto, como vidrios insonorizantes o películas de protección, generando conflictos normativos.`,
+                plan_accion: `1. Diagnóstico Jurídico: Realizar un análisis comparativo integral entre el RPH vigente y el Decreto 768 de 2025 para identificar la totalidad de los artículos que requieren ser modificados, incluyendo los procedimientos de entrega de actas, regulación de actividades económicas, gestión de pruebas, y normas de tenencia de mascotas, entre otros.
+2. Reforma del RPH: Elaborar un proyecto de reforma del reglamento que incorpore las nuevas obligaciones y procedimientos, para ser presentado ante la Asamblea de Propietarios.
+3. Protocolización: Una vez aprobada la reforma en la Asamblea, adelantar el trámite de elevación a escritura pública y su correspondiente registro en la Oficina de Instrumentos Públicos.
+4. Implementación de Procesos: Establecer y documentar los nuevos procedimientos internos que se derivan de la reforma, tales como el formato y mantenimiento del censo de mascotas, el protocolo para la recolección y custodia de pruebas, y los criterios para la autorización de eventos en áreas comunes.`,
+                riesgos: `1. Riesgo de Nulidad de Actuaciones: La imposición de sanciones con base en pruebas hoy consideradas inadmisibles o en normas desactualizadas podría llevar a que los procesos disciplinarios sean declarados nulos.
+2. Riesgo de Sanciones Directas: La negativa a entregar un acta de asamblea podría escalar hasta convertirse en el desacato a una orden de policía, exponiendo a la administración a medidas correctivas.
+3. Riesgo Legal y de Litigios: La aplicación de un reglamento no armonizado expone a la copropiedad a acciones de tutela por parte de residentes que se vean afectados por normas internas que contravienen una ley superior.
+4. Riesgo de Ineficacia Policial: La ambigüedad o contradicción entre el RPH y el Código de Policía puede impedir o retrasar la intervención efectiva de las autoridades en situaciones de seguridad o convivencia.
+5. Riesgo de Convivencia: La falta de reglas claras y legalmente respaldadas`,
+                normativa: `Decreto 768 de 2025 Mindefensa`,
+                estado: `No Iniciado`,
+                impacto: `Medio`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-09`,
+                fecha_compromiso: ``,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 20,
+                titulo: `Control y registro del presupuesto`,
+                descripcion: `Se identificó que el presupuesto de ingresos y egresos aprobado por la Asamblea General de Propietarios, llevada a cabo el 5 de abril de 2025, no ha sido cargado con exactitud en el sistema contable de la copropiedad. Esta omisión impide realizar un seguimiento y control adecuado del presupuesto de la copropiedad. Los registros contables no se pueden comparar con los montos presupuestados, lo que dificulta la identificación de desviaciones y el análisis de la gestión administrativa y financiera.
+Dentro de nuestra revisión fue posible identificar:
+ Rubros en el presupuesto oficial que no están cargados en sistema (extractores locales, certificación de ascensores, certificación de puertas vehiculares, elementos de cafetería, red contra incendios, fondo de imprevistos).
+ Rubros en el presupuesto oficial que presentan diferencias significativas respecto al sistema (Vigilancia, Aseo, Administración, etc).`,
+                plan_accion: `1. Cargar el Presupuesto: La administración debe cargar de inmediato el presupuesto de ingresos y egresos aprobado por la asamblea en el sistema contable. Esto debe incluir los montos presupuestados para cada rubro, como las cuotas de administración, gastos de mantenimiento, servicios públicos, etc. 2. Implementar control de carga: Una vez cargado el presupuesto, se deben configurar los informes contables para que permitan la comparación de los valores reales (ejecutados) con los valores presupuestados. Estos informes deben ser generados de manera periódica, preferiblemente mensual, y ser presentados al Consejo de Administración para su revisión. 3. Capacitación del Personal: Es crucial capacitar al personal administrativo en el uso del sistema contable y en la importancia de la gestión presupuestaria. Esto ayudará a garantizar que el presupuesto sea utilizado como una herramienta efectiva para la toma de decisiones y el control financiero.`,
+                riesgos: `1. Riesgo de Gestión Financiera Ineficiente: Sin un presupuesto cargado en el sistema, la administración no puede monitorear de manera efectiva los ingresos y egresos en tiempo real. Esto podría llevar a un uso descontrolado de los recursos, generando un déficit o un gasto excesivo en partidas no prioritarias.
+2. Riesgo de Falta de Control y Transparencia: La ausencia del presupuesto en el sistema contable impide que el revisor fiscal y la junta directiva realicen un control adecuado sobre la ejecución presupuestaria. Esto podría generar desconfianza por parte de los copropietarios y la junta, ya que no hay una forma fácil de verificar si se están cumpliendo los límites de gasto aprobados. 
+3. Riesgo de Toma de Decisiones Erróneas: Al no tener acceso a la comparación entre el presupuesto y la ejecución, la junta directiva y la administración pueden tomar decisiones financieras equivocadas, basadas en suposiciones y no en datos reales. Por ejemplo, podrían autorizar gastos no planeados sin saber el impacto que estos tendrían en la salud financiera de la copropiedad.
+`,
+                normativa: `NTS SI 02. Numeral 5.1`,
+                estado: `Completado`,
+                impacto: `Alto`,
+                categoria: `Razonabilidad EEFF`,
+                fecha_identificacion: `2025-09`,
+                fecha_compromiso: `2025-10`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 21,
+                titulo: `Diferencias Puntuales en Coeficientes (RPH Vs. Sistema Contable)`,
+                descripcion: `Como resultado de la evaluación selectiva de los coeficientes de copropiedad cargados en el sistema contable frente a lo estipulado en el Reglamento de Propiedad Horizontal (RPH), hemos identificado imprecisiones en la parametrización de unidades específicas. Estas diferencias, que afectan la correcta liquidación de expensas comunes, se evidenciaron en las siguientes unidades inmobiliarias: 407, 414, 501, 502, 505, 710, 1112, 9041, Local 1.
+• La utilización de coeficientes inexactos para estas unidades vulnera el Artículo 29 de la Ley 675 de 2001, el cual ordena que la liquidación de las expensas comunes se fundamente estrictamente en los coeficientes de copropiedad establecidos en el RPH.
+• Conforme al principio de legalidad que rige la propiedad horizontal, la corrección de esta desviación normativa es mandatoria.
+`,
+                plan_accion: `1. Ajuste Inmediato de Parámetros: Ordenar al área contable la corrección inmediata en la base de datos del sistema de los coeficientes de las unidades 407, 414, 501, 502, 505, 710, 1112, 9041, Local 1 para alinearlos con el RPH.
+2. Recálculo Retroactivo: Revisar el recálculo de todas las cuotas de administración facturadas durante el periodo fiscal para las unidades afectadas, determinando los saldos a favor o en contra correspondientes en caso de haberlas.
+3. Generación de Saldos y Notificación: Elaborar y aplicar los documentos de ajuste contable (notas crédito para los cobros en exceso y notas débito para los cobros en defecto) y notificar formalmente a cada propietario afectado, explicando el origen de la diferencia.
+4. Verificación de Integridad: Documentar la verificación del 100% de todos los coeficientes cargados en el sistema contra el RPH, para garantizar que no existan otras diferencias puntuales no detectadas en esta prueba.
+`,
+                riesgos: `1. Riesgo Legal y de Litigios: Los propietarios de las unidades afectadas por cobros en exceso pueden iniciar acciones legales contra la copropiedad exigiendo la devolución de los mayores valores pagados. Así mismo, la gestión de cobro a las unidades a las que se les facturó un menor valor se obstaculiza, generando conflictos legales.
+2. Riesgo Financiero y Contable: Los ingresos por cuotas de administración se encuentran distorsionados, afectando la razonabilidad de los estados financieros. Si las unidades con error representan un coeficiente significativo, esto podría generar un déficit presupuestal no identificado.
+3. Riesgo de Impugnación: Un propietario afectado podría argumentar que las decisiones de la asamblea basadas en la ejecución presupuestal (la cual se nutre de recaudos con vicios en su liquidación) son impugnables.
+`,
+                normativa: `Artículo 29 Ley 675/2001`,
+                estado: `No Iniciado`,
+                impacto: `Alto`,
+                categoria: `Razonabilidad EEFF`,
+                fecha_identificacion: `2025-09`,
+                fecha_compromiso: `2026-01`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 22,
+                titulo: `Gestión de contratos y garantías`,
+                descripcion: `No existe un cuadro control para monitorear los contratos y pólizas en relación a sus vencimientos, garantías, que le permita al consejo de administración efectuar el control respectivo a tal gestión.`,
+                plan_accion: `Implementar cuadro control de contratos y pólizas.`,
+                riesgos: `"Amarres" Contractuales (Renovación Automática): Es el riesgo financiero más común. Al no tener alerta de las fechas de preaviso (generalmente 30 o 60 días antes), los contratos con proveedores deficientes se renuevan automáticamente, obligando a la copropiedad a soportarlos otro año o pagar indemnizaciones para sacarlos.
+
+Desprotección Total (Vencimiento de Seguros): Si la póliza de zonas comunes vence y nadie lo nota por falta de control, el edificio queda descubierto. Un siniestro (incendio, daño a terceros) durante ese "bache" de cobertura tendría que ser pagado del bolsillo de los copropietarios.
+
+Pérdida de Garantías: Se vencen los tiempos para reclamar garantías sobre obras (ej. impermeabilización) o equipos (bombas, ascensores) sin que la administración haya hecho la inspección final, perdiendo el dinero de la reparación.
+
+Incrementos de Costos No Negociados: Al renovarse automáticamente un contrato sin revisión previa, el proveedor suele aplicar el incremento máximo permitido, perdiendo la oportunidad de negociar mejores tarifas según el mercado actual.`,
+                normativa: ``,
+                estado: `En Proceso`,
+                impacto: `Alto`,
+                categoria: `Control Interno`,
+                fecha_identificacion: `2025-10`,
+                fecha_compromiso: `2025-12`,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: false
+            },{
+                id: 23,
+                titulo: `Libros oficiales`,
+                descripcion: `Se evidenció que no se han impreso los libros oficiales correspondientes al periodo fiscal 2025, lo que impide su adecuada conservación y uso como documentación probatoria en caso de requerimientos legales, administrativos o fiscales.
+Según el Concepto Nº 2021-0594 del CTCP, aunque la propiedad horizontal no está obligada a registrar sus libros contables ante la Cámara de Comercio o la DIAN, sí debe llevar contabilidad y garantizar la existencia y disponibilidad de sus libros oficiales. Además, el artículo 774 del Estatuto Tributario establece que, cuando la contabilidad se use como medio de prueba, sus libros deben estar debidamente conservados y registrados.
+Importancia de los Libros Oficiales como Prueba Legal.
+Tener libros oficiales impresos y actualizados permite:
+1. Facilitar la resolución de conflictos con copropietarios sobre cuotas de administración, intereses de mora o ejecución presupuestaria.
+2. Servir como prueba en procesos judiciales o tributarios, por ejemplo:
+Cobro de cartera: En caso de iniciar una demanda por cuotas vencidas, la contabilidad puede respaldar la deuda ante un juez.
+	Reclamaciones por gastos o contrataciones: Si un egreso es impugnado, la contabilidad oficial permite demostrar su legitimidad.
+	Requerimientos fiscales: En caso de una revisión por parte de la DIAN, los registros contables impresos pueden ser utilizados como prueba de cumplimiento tributario.`,
+                plan_accion: `Imprimir y conservar los libros oficiales correspondientes al periodo fiscal 2025, asegurando su disponibilidad para consultas y auditorías.
+Incluir controles internos para asegurar que cada año se impriman y almacenen adecuadamente los libros oficiales.`,
+                riesgos: `1. Debilidad Probatoria en Cobros Jurídicos (Cartera): Es el riesgo más crítico. En un proceso ejecutivo contra morosos, los jueces pueden desestimar la certificación de deuda si no está respaldada por libros de contabilidad oficiales, físicos y verificables (Art. 774 E.T.), dificultando la recuperación del dinero.
+2. Pérdida de Información (Riesgo Tecnológico): El software contable es un servicio, no un archivo eterno. Si hay un cambio de administrador, un ataque informático (Ransomware) o se deja de pagar la licencia del software, la historia financiera desaparece. El libro impreso es el respaldo de seguridad definitivo.
+3. Imposibilidad de Auditoría Forense: Si se sospecha de un fraude, la contabilidad digital es fácilmente alterable ("editable"). Los libros impresos y foliados congelan la información en el tiempo, permitiendo rastrear irregularidades de administraciones pasadas.`,
+                normativa: `Artículo 774 del Estatuto Tributario`,
+                estado: `No Iniciado`,
+                impacto: `Alto`,
+                categoria: `Cumplimiento Normativo`,
+                fecha_identificacion: `2025-11`,
+                fecha_compromiso: ``,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: true
+            },{
+                id: 24,
+                titulo: `Uso de Software sin Licenciamiento Formal`,
+                descripcion: `Durante nuestra visita inicial de auditoría, fue posible evidenciar el uso de software sin licenciamiento formal en el ordenador del área administrativa.`,
+                plan_accion: `1.Gestionar la compra de licencias originales a través de distribuidores autorizados. 2. Formatear e instalar el software legal en los equipos afectados, asegurando que queden activos y actualizados. 3. Se insta a la administración a priorizar la partida presupuestal necesaria para esta regularización, ya que el costo de la legalización es significativamente inferior al costo de una eventual sanción legal o la recuperación de datos tras un ataque cibernético.`,
+                riesgos: `1. Riesgo de Ciberseguridad: Al no tener licencias originales, los equipos no reciben actualizaciones críticas de seguridad, quedando vulnerables a virus, ransomware y pérdida de información sensible de los copropietarios. 2.Riesgo Operativo: Inestabilidad en el funcionamiento de los equipos, posibles bloqueos del sistema y falta de soporte técnico oficial.`,
+                normativa: ``,
+                estado: `No Iniciado`,
+                impacto: `Alto`,
+                categoria: `Control Interno`,
+                fecha_identificacion: `2025-11`,
+                fecha_compromiso: ``,
+                fecha_compromiso_nueva: ``,
+                extensiones: 0,
+                es_nuevo: true
+            }
+        ];
+
+        // ============================================
+        // FUNCIONES DE INICIALIZACIÓN
+        // ============================================
+
+        function cargarDatos() {
+            // ENCABEZADO
+            document.getElementById('nombreCopropiedad').textContent = datosEncabezado.nombreCopropiedad || '-';
+            document.getElementById('nitCopropiedad').textContent = datosEncabezado.nitCopropiedad || '-';
+            document.getElementById('corteFecha').textContent = datosEncabezado.corteFecha || '-';
+            document.getElementById('logo').src = datosEncabezado.logoUrl;
+
+            // OBSERVACIONES GENERALES
+            if (datosEncabezado.observacionesGenerales) {
+                document.getElementById('observaciones-variables').innerHTML = `<p>${datosEncabezado.observacionesGenerales}</p>`;
+            }
+
+            renderResumen();
+            renderGastos();
+            renderGantt();
+            renderTableSubsanados();
+        }
+
+        function renderResumen() {
+            const total = hallazgos.length;
+            const completados = hallazgos.filter(h => h.estado === 'Completado').length;
+            const enProceso = hallazgos.filter(h => h.estado === 'En Proceso').length;
+            const noIniciados = hallazgos.filter(h => h.estado === 'No Iniciado').length;
+            
+            const pctComp = total > 0 ? Math.round((completados / total) * 100) : 0;
+            const pctProc = total > 0 ? Math.round((enProceso / total) * 100) : 0;
+            const pctNoIni = total > 0 ? Math.round((noIniciados / total) * 100) : 0;
+
+            document.getElementById('totalHallazgos').textContent = total;
+            document.getElementById('hallazgosCompletados').textContent = completados;
+            document.getElementById('hallazgosEnProceso').textContent = enProceso;
+            document.getElementById('hallazgosNoIniciados').textContent = noIniciados;
+            document.getElementById('pctCompletados').textContent = `${pctComp}%`;
+            document.getElementById('pctEnProceso').textContent = `${pctProc}%`;
+            document.getElementById('pctNoIniciados').textContent = `${pctNoIni}%`;
+
+            const totalGastos = gastosSinSoporte.reduce((sum, g) => sum + (g.valor || 0), 0);
+            document.getElementById('gastosSinSoporte').textContent = formatearValor(totalGastos);
+
+            const pctHallazgos = total > 0 ? `Completados: ${pctComp}%` : '-';
+            document.getElementById('pctHallazgos').textContent = pctHallazgos;
+
+            // GRID DE CATEGORÍAS
+            const categorias = [...new Set(hallazgos.map(h => h.categoria))];
+            let html = '';
+            
+            categorias.forEach(cat => {
+                const catHallazgos = hallazgos.filter(h => h.categoria === cat);
+                const completados = catHallazgos.filter(h => h.estado === 'Completado').length;
+                const enProceso = catHallazgos.filter(h => h.estado === 'En Proceso').length;
+                const noIniciados = catHallazgos.filter(h => h.estado === 'No Iniciado').length;
+                const pct = catHallazgos.length > 0 ? Math.round((completados / catHallazgos.length) * 100) : 0;
+
+                html += `
+                    <div class="chart-container" style="margin-top: 1rem;">
+                        <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700;">${cat}</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">${catHallazgos.length}</div>
+                                <div class="stat-label">Total</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">${completados}</div>
+                                <div class="stat-label">Subsanados</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">${enProceso}</div>
+                                <div class="stat-label">En Proceso</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">${noIniciados}</div>
+                                <div class="stat-label">No Iniciados</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('resumen-grid').innerHTML = html;
+        }
+
+        function formatearFecha(fechaStr) {
+            if (!fechaStr) return '-';
+            // Si la fecha tiene formato ISO con hora (YYYY-MM-DD HH:MM:SS o YYYY-MM-DDTHH:MM:SS)
+            if (fechaStr.includes('T') || fechaStr.includes(' ')) {
+                return fechaStr.split('T')[0].split(' ')[0];
+            }
+            return fechaStr;
+        }
+
+        function renderGastos() {
+            // GASTOS SIN SOPORTE
+            let htmlSoporte = '';
+            let totalSoporte = 0;
+
+            gastosSinSoporte.forEach(g => {
+                totalSoporte += g.valor || 0;
+                htmlSoporte += `
+                    <tr>
+                        <td>${g.proveedor}</td>
+                        <td>${g.documento}</td>
+                        <td class="valor-highlight">${formatearValor(g.valor)}</td>
+                        <td>${formatearFecha(g.fecha_causacion)}</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById('tabla-gastos-soporte').innerHTML = htmlSoporte;
+            document.getElementById('total-soporte').textContent = formatearValor(totalSoporte);
+            
+            // Mostrar/ocultar "Requiere acción" condicionalmente
+            const kpiRequiereAccion = document.getElementById('kpi-requiere-accion');
+            if (totalSoporte > 0) {
+                kpiRequiereAccion.style.display = 'block';
+            } else {
+                kpiRequiereAccion.style.display = 'none';
+            }
+
+            // GASTOS SIN PLANILLA
+            let htmlPlanilla = '';
+            let totalPlanilla = 0;
+
+            gastosSinPlanilla.forEach(g => {
+                totalPlanilla += g.valor || 0;
+                htmlPlanilla += `
+                    <tr>
+                        <td>${g.proveedor}</td>
+                        <td>${g.documento}</td>
+                        <td class="valor-highlight">${formatearValor(g.valor)}</td>
+                        <td>${formatearFecha(g.fecha_causacion)}</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById('tabla-gastos-planilla').innerHTML = htmlPlanilla;
+            document.getElementById('total-planilla').textContent = formatearValor(totalPlanilla);
+        }
+
+        function renderGantt() {
+            const months = ['Abr', 'May', 'Jun', 'Jul', 'Agos', 'Sep', 'Oct', 'Nov', 'Dic', 'Ene', 'Feb', 'Mar'];
+            const monthMap = {
+                '04': 0, '05': 1, '06': 2, '07': 3, '08': 4, '09': 5,
+                '10': 6, '11': 7, '12': 8, '01': 9, '02': 10, '03': 11
+            };
+            const ganttChart = document.getElementById('gantt-chart');
+            
+            // Header
+            let html = '<div class="gantt-header"><div class="gantt-month">Hallazgo</div>';
+            months.forEach(month => {
+                html += `<div class="gantt-month">${month}</div>`;
+            });
+            html += '</div>';
+            
+            // Filtrar hallazgos activos CON FECHAS VÁLIDAS y ORDENAR por fecha_identificacion
+            const activos = hallazgos
+                .filter(h => (h.estado === 'En Proceso' || h.estado === 'No Iniciado') 
+                          && h.fecha_identificacion && h.fecha_identificacion !== '' 
+                          && h.fecha_compromiso && h.fecha_compromiso !== '')
+                .sort((a, b) => {
+                    const fechaA = new Date(a.fecha_identificacion + '-01');
+                    const fechaB = new Date(b.fecha_identificacion + '-01');
+                    return fechaA - fechaB;
+                });
+            
+            activos.forEach(h => {
+                html += '<div class="gantt-row">';
+               const badgeNuevo = h.es_nuevo ? '<span class="badge badge-nuevo">NUEVO</span>' : '';
+                html += `<div class="gantt-task-name" onclick="showDetail(${h.id})">${h.titulo}${badgeNuevo}</div>`;
+                html += '<div class="gantt-timeline">';
+                
+                // Validar que fecha_identificacion existe
+                if (!h.fecha_identificacion) {
+                    html += '</div></div>';
+                    return;
+                }
+                
+                let startCol;
+                const [yearIdent, monthIdent] = h.fecha_identificacion.split('-');
+                
+                // Año fiscal: Abr/2025 - Mar/2026
+                // Meses 01-03 del 2025 van al INICIO (antes de Abril)
+                // Meses 04-12 del 2025 van en su posición normal
+                // Meses 01-03 del 2026 van al FINAL
+                if (yearIdent === '2024' || (yearIdent === '2025' && parseInt(monthIdent) <= 3)) {
+                    // 2024 o Ene-Mar 2025: al inicio (antes de Abril)
+                    startCol = 0;
+                } else if (yearIdent === '2025') {
+                    // Abr-Dic 2025: usar monthMap normal
+                    startCol = monthMap[monthIdent] || 0;
+                } else {
+                    // 2026 (Ene-Mar): usar monthMap (posición final)
+                    startCol = monthMap[monthIdent] || 0;
+                }
+                
+                // NUEVA LÓGICA: Usar fecha_compromiso (original) y fecha_compromiso_nueva
+                if (h.fecha_compromiso_nueva && h.fecha_compromiso_nueva !== '') {
+                    // Hay extensión
+                    const [yearComp, monthComp] = h.fecha_compromiso.split('-');
+                    const [yearNew, monthNew] = h.fecha_compromiso_nueva.split('-');
+                    const endColOriginal = monthMap[monthComp] || 0;
+                    const endColNueva = monthMap[monthNew] || 0;
+                    
+                    // Determinar color de extensión según número de extensiones
+                    let extensionClass = 'bar-extension1';
+                    if (h.extensiones && h.extensiones >= 2) {
+                        extensionClass = 'bar-extension2';
+                    }
+                    
+                    // Barra amarilla: identificación → compromiso original
+                    html += `<div class="gantt-bar bar-no-iniciado" style="grid-column: ${startCol + 1} / ${endColOriginal + 2};" onclick="showDetail(${h.id})"></div>`;
+                    // Barra naranja: compromiso original → compromiso nueva
+                    html += `<div class="gantt-bar ${extensionClass}" style="grid-column: ${endColOriginal + 2} / ${endColNueva + 2};" onclick="showDetail(${h.id})"></div>`;
+                } else {
+                    // Sin extensión, solo compromiso original
+                    const [year, month] = h.fecha_compromiso.split('-');
+                    const endCol = monthMap[month] || 0;
+                    
+                    // Barra amarilla: identificación → compromiso
+                    html += `<div class="gantt-bar bar-no-iniciado" style="grid-column: ${startCol + 1} / ${endCol + 2};" onclick="showDetail(${h.id})"></div>`;
+                }
+                
+                html += '</div></div>';
+            });
+            
+            // Agregar convenciones de color al final
+            html += `
+                <div style="margin-top: 2rem; padding: 1.5rem; background: #f9f9f9; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <h3 style="font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem;">📊 Convenciones de Color</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; font-size: 0.9rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 50px; height: 24px; background: #F5F352; border: 2px solid #E6DB3A; border-radius: 4px;"></div>
+                            <span><strong>Amarillo:</strong> Período comprendido desde la identificación del hallazgo hasta el compromiso original</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 50px; height: 24px; background: #FFBA27; border: 2px solid #E6A31F; border-radius: 4px;"></div>
+                            <span><strong>Naranja claro:</strong> Extensión (1 extensión)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 50px; height: 24px; background: #FF8916; border: 2px solid #E67812; border-radius: 4px;"></div>
+                            <span><strong>Naranja oscuro:</strong> Múltiples extensiones (2+)</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.85rem; color: #666; font-style: italic;">
+                        ℹ️ Los hallazgos se ordenan cronológicamente del más antiguo al más reciente. Haga clic en las barras para ver el detalle completo.
+                    </p>
+                </div>
+            `;
+            
+            ganttChart.innerHTML = html;
+        }
+
+        function renderTableSubsanados() {
+            const tbody = document.getElementById('table-body');
+            const completados = hallazgos.filter(h => h.estado === 'Completado');
+            let html = '';
+
+            completados.forEach(h => {
+                const fechaFinal = h.fecha_compromiso_nueva || h.fecha_compromiso || '-';
+                const extensiones = h.extensiones ? `${h.extensiones} extensión(es)` : 'Sin extensiones';
+                
+                html += `
+                    <tr onclick="showDetail(${h.id})">
+                        <td>${h.titulo}</td>
+                        <td>${h.categoria}</td>
+                        <td><span class="badge badge-${h.impacto.toLowerCase()}">${h.impacto}</span></td>
+                        <td>${fechaFinal}</td>
+                        <td>${extensiones}</td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = html;
+        }
+
+        function showDetail(id) {
+            const hallazgo = hallazgos.find(h => h.id === id);
+            if (!hallazgo) return;
+
+            document.getElementById('modal-title').textContent = hallazgo.titulo;
+
+            const fechaLabel = hallazgo.estado === 'Completado' ? 'Fecha de Subsanación' : 'Fecha Compromiso';
+
+            let bodyHtml = `
+                <div class="detail-section">
+                    <div class="detail-label">Estado e Impacto</div>
+                    <div class="detail-content">
+                        <span class="badge badge-${hallazgo.estado.toLowerCase().replace(' ', '-')}">${hallazgo.estado}</span>
+                        <span class="badge badge-${hallazgo.impacto.toLowerCase()}">Impacto: ${hallazgo.impacto}</span>
+                        <span class="badge" style="background: var(--accent); color: var(--primary);">${hallazgo.categoria}</span>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-label">Descripción del Hallazgo</div>
+                    <div class="detail-content">${hallazgo.descripcion}</div>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-label">Plan de Acción</div>
+                    <div class="detail-content">${hallazgo.plan_accion}</div>
+                </div>
+
+                ${hallazgo.riesgos && hallazgo.riesgos !== '' && hallazgo.riesgos !== 'nan' ? `
+                    <div class="detail-section">
+                        <div class="detail-label">Riesgos Asociados</div>
+                        <div class="detail-content">${hallazgo.riesgos}</div>
+                    </div>
+                ` : ''}
+
+                ${hallazgo.normativa && hallazgo.normativa !== '' && hallazgo.normativa !== 'nan' ? `
+                    <div class="detail-section">
+                        <div class="detail-label">Normativa Aplicable</div>
+                        <div class="detail-content">${hallazgo.normativa}</div>
+                    </div>
+                ` : ''}
+
+                <div class="detail-section">
+                    <div class="detail-label">Fechas</div>
+                    <div class="detail-content">
+                        ${hallazgo.fecha_identificacion && hallazgo.fecha_identificacion !== '' ? `<strong>Fecha de Identificación:</strong> ${hallazgo.fecha_identificacion}<br>` : ''}
+                        ${hallazgo.fecha_compromiso_nueva && hallazgo.fecha_compromiso_nueva !== '' ? `<strong>Fecha Compromiso Nueva:</strong> ${hallazgo.fecha_compromiso_nueva}<br>` : ''}
+                        ${hallazgo.fecha_compromiso && hallazgo.fecha_compromiso !== '' && !hallazgo.fecha_compromiso_nueva ? `<strong>${fechaLabel}:</strong> ${hallazgo.fecha_compromiso}<br>` : ''}
+                        ${hallazgo.extensiones ? `<strong>Extensiones Solicitadas:</strong> ${hallazgo.extensiones}` : ''}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('modal-body').innerHTML = bodyHtml;
+            document.getElementById('detailModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        function switchTab(evt, tabName) {
+            const tabcontents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabcontents.length; i++) {
+                tabcontents[i].classList.remove('active');
+            }
+
+            const tabs = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        function formatearValor(valor) {
+            return new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(valor);
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Protección contra inspección - Click derecho deshabilitado
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('Este Dashboard ya ha sido protegido por derechos de autor. Las violaciones serán perseguidas conforme la Ley 599 de 2000 en sus artículos 270, 271 y 272.');
+            return false;
+        });
+
+        // Protección contra teclas de desarrollador
+        document.addEventListener('keydown', function(e) {
+            // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.keyCode === 123 || 
+                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+                (e.ctrlKey && e.keyCode === 85)) {
+                e.preventDefault();
+                alert('Este Dashboard ya ha sido protegido por derechos de autor. Las violaciones serán perseguidas conforme la Ley 599 de 2000 en sus artículos 270, 271 y 272.');
+                return false;
+            }
+        });
+
+        // Inicializar cuando carga la página
+        window.onload = function() {
+            cargarDatos();
+        };
+    </script>
+</body>
+</html>
