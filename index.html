@@ -1004,10 +1004,10 @@
         let gastosSinSoporte = [];
         let gastosSinPlanilla = [];
         let hallazgos = [
-            {
-                id: 1,
-                titulo: `Habeas Data`,
-                descripcion: `A pesar de las gestiones adelantadas en la implementación del régimen de protección de datos personales, estas resultan insuficientes y mantienen un riesgo sancionatorio debido a los siguientes incumplimientos:
+        {
+            id: 1,
+            titulo: `Habeas Data`,
+            descripcion: `A pesar de las gestiones adelantadas en la implementación del régimen de protección de datos personales, estas resultan insuficientes y mantienen un riesgo sancionatorio debido a los siguientes incumplimientos:
 1. Deficiencias en los consentimientos informados:
  No permiten al titular aprobar o improbar el tratamiento de sus datos según la finalidad específica.
  Las finalidades contempladas son incompletas y, en algunos casos, demasiado generales. (Ejemplo: falta autorización para el envío de cuentas de cobro por email, grabación de imagen en asambleas, entre otros).
@@ -1020,264 +1020,278 @@
  Política de protección de datos personales no se encuentra publicada.
  Pendiente por suscribir el documento de asignación como Responsable del Tratamiento al señor Administrador.
 `,
-                plan_accion: `Se recomienda la implementación completa del régimen de protección de datos personales, corrigiendo los hallazgos identificados. Para ello, se sugiere la contratación de un proveedor especializado en la materia.`,
-                riesgos: `1. Riesgo Sancionatorio: Exposición inminente a multas y sanciones de la SIC por incumplimiento normativo.
+            plan_accion: `Se recomienda la implementación completa del régimen de protección de datos personales, corrigiendo los hallazgos identificados. Para ello, se sugiere la contratación de un proveedor especializado en la materia.`,
+            riesgos: `1. Riesgo Sancionatorio: Exposición inminente a multas y sanciones de la SIC por incumplimiento normativo.
 2.Recolección Ilegal: Tratamiento de datos sin consentimiento válido por falta de avisos de privacidad públicos.
 3. Indefensión ante Terceros: Responsabilidad legal total sobre el mal uso de datos por parte de proveedores (al no existir cláusulas contractuales).
 4. Fuga de Información: Alta probabilidad de divulgación no autorizada por consejeros y personal sin acuerdos de confidencialidad ni capacitación.
 5. Gestión Ciega de Seguridad: Imposibilidad de prevenir ataques o fugas al carecer de un inventario de datos y una matriz de riesgos.
 6. Falta de Accountability: Incapacidad de demostrar diligencia debida ante una investigación, agravando cualquier penalidad.`,
-                normativa: `Ley 1581 de 2012`,
-                estado: `En Proceso`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-12`,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 1
-            },
-            {
-                id: 2,
-                titulo: `Procedimientos NTS SI 02`,
-                descripcion: `Se identificó que la administración no ha establecido ni formalizado los procedimientos estandarizados requeridos por la norma para garantizar el control interno. Especialmente, se evidencian vacíos en la documentación de procesos críticos para:
+            normativa: `Ley 1581 de 2012`,
+            estado: `En Proceso`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-12`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 1,
+            es_nuevo: false
+        },
+        {
+            id: 2,
+            titulo: `Procedimientos NTS SI 02`,
+            descripcion: `Se identificó que la administración no ha establecido ni formalizado los procedimientos estandarizados requeridos por la norma para garantizar el control interno. Especialmente, se evidencian vacíos en la documentación de procesos críticos para:
 Gestión Documental y Registros: Aprobación, custodia, retención y disposición final (Ref. Num 4.7 y 4.8).
 Gestión Financiera: Presupuestos, control contable y obligaciones tributarias (Ref. Num 5.1).
 Mantenimiento: Cronogramas y actividades de preservación de activos (Ref. Num 5.7).
 Continuidad de la Administración: Protocolos de empalme, recepción y entrega del cargo (Ref. Num 5.9).
 Entre otros.`,
-                plan_accion: `Diseñar, documentar e institucionalizar los manuales de procedimientos para las áreas citadas. El objetivo es desvincular la operación de la persona (el administrador de turno) y anclarla a procesos institucionales, asegurando la trazabilidad, el control interno y la preservación del conocimiento (empalme) ante futuros cambios en la administración.`,
-                riesgos: `1. Pérdida de Memoria Institucional y Capital Intelectual: La inexistencia de protocolos de empalme (Num 5.9) genera una fuga crítica de información cada vez que cambia la administración. Esto obliga a la copropiedad a iniciar "desde cero" (reprocesos), perdiendo el histórico de gestiones, negociaciones y conocimientos adquiridos.
+            plan_accion: `Diseñar, documentar e institucionalizar los manuales de procedimientos para las áreas citadas. El objetivo es desvincular la operación de la persona (el administrador de turno) y anclarla a procesos institucionales, asegurando la trazabilidad, el control interno y la preservación del conocimiento (empalme) ante futuros cambios en la administración.`,
+            riesgos: `1. Pérdida de Memoria Institucional y Capital Intelectual: La inexistencia de protocolos de empalme (Num 5.9) genera una fuga crítica de información cada vez que cambia la administración. Esto obliga a la copropiedad a iniciar "desde cero" (reprocesos), perdiendo el histórico de gestiones, negociaciones y conocimientos adquiridos.
 2. Discontinuidad Operativa y Falta de Trazabilidad: Al no existir procedimientos estandarizados para el mantenimiento (Num 5.7) y la gestión documental (Num 4.7/4.8), la operación depende exclusivamente del criterio subjetivo del administrador actual. Esto impide realizar un seguimiento auditoriable y pone en riesgo la conservación del patrimonio y los activos de la copropiedad.
 3. Vulnerabilidad Financiera y Tributaria: La falta de formalización en los controles contables y presupuestales (Num 5.1) incrementa el riesgo de errores en el cumplimiento de obligaciones fiscales, pudiendo derivar en sanciones, multas o desviaciones de recursos no detectadas a tiempo.
 4. Debilidad en el Gobierno Corporativo (Ausencia de Control): La carencia de reglas claras dificulta la supervisión por parte del Consejo. Sin un estándar contra el cual medir la gestión, se crea un ambiente de discrecionalidad excesiva que impide evaluar objetivamente el desempeño del administrador.`,
-                normativa: `NTS SI 02`,
-                estado: `No Iniciado`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: ``,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 3
-            },
-            {
-                id: 3,
-                titulo: `Planes de Trabajo NTS SI 02`,
-                descripcion: `No se encontró evidencia de la construcción de un plan de trabajo conforme la norma técnica, donde se plasmen las actividades a realizar por un periodo determinado para los aspectos requeridos, los cuales son los siguientes:
+            normativa: `NTS SI 02`,
+            estado: `No Iniciado`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-09`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 3,
+            es_nuevo: false
+        },
+        {
+            id: 3,
+            titulo: `Planes de Trabajo NTS SI 02`,
+            descripcion: `No se encontró evidencia de la construcción de un plan de trabajo conforme la norma técnica, donde se plasmen las actividades a realizar por un periodo determinado para los aspectos requeridos, los cuales son los siguientes:
 	De convivencia.
 	Jurídicos
 	Administrativos
 	Financieros
 	Operativos
 	Seguridad y Prevención.`,
-                plan_accion: `Construir plan de trabajo conforme la norma para el periodo 2024 – 2025. Esto permitirá efectuar un seguimiento a la gestión del administrador por sus labores efectivamente realizadas, disminuyendo el factor subjetivo. Este plan debe ser construido y aprobado por el Consejo de Administración. `,
-                riesgos: `Deterioro Patrimonial (Riesgo Operativo): Al no haber un cronograma de mantenimiento preventivo, se opera de forma reactiva ("apaga-incendios"), lo que encarece los arreglos y desvaloriza el inmueble.
+            plan_accion: `Construir plan de trabajo conforme la norma para el periodo 2024 – 2025. Esto permitirá efectuar un seguimiento a la gestión del administrador por sus labores efectivamente realizadas, disminuyendo el factor subjetivo. Este plan debe ser construido y aprobado por el Consejo de Administración. `,
+            riesgos: `Deterioro Patrimonial (Riesgo Operativo): Al no haber un cronograma de mantenimiento preventivo, se opera de forma reactiva ("apaga-incendios"), lo que encarece los arreglos y desvaloriza el inmueble.
 Ineficiencia Financiera: El presupuesto se ejecuta según la urgencia del día y no según lo planeado, generando sobrecostos y posible desvío de recursos.
 Vulnerabilidad Legal y de Seguridad: Se eleva la probabilidad de omitir obligaciones legales (vencimiento de pólizas, certificaciones SG-SST) o descuidar protocolos de seguridad por falta de seguimiento.
 Falta de Gobernabilidad (El riesgo subjetivo): El Consejo de Administración pierde el control. Sin un plan aprobado, es imposible evaluar objetivamente si el administrador cumplió o no, dificultando su remoción o sanción por incumplimiento.`,
-                normativa: `NTS SI 02`,
-                estado: `Completado`,
-                impacto: `Medio`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-07`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 4,
-                titulo: `Conciliaciones Bancarias`,
-                descripcion: `Se identificó que el proceso de conciliación bancaria carece de la debida formalización documental. A la fecha, no reposan en archivo físico los extractos bancarios cruzados con los libros auxiliares contables, ni las respectivas hojas de trabajo de conciliación. Más crítico aún, no existe evidencia de revisión (firmas o vistos buenos) por parte de la Administración ni del Consejo de Administración. Actualmente, los estados financieros se están generando sin una validación supervisada de la disponibilidad real de efectivo, dependiendo exclusivamente del criterio del área contable.`,
-                plan_accion: `Institucionalizar el cierre mensual de tesorería mediante la creación de una Carpeta de Conciliaciones. Este procedimiento debe ser de cumplimiento obligatorio e incluir:
+            normativa: `NTS SI 02`,
+            estado: `Completado`,
+            impacto: `Medio`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-07`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 4,
+            titulo: `Conciliaciones Bancarias`,
+            descripcion: `Se identificó que el proceso de conciliación bancaria carece de la debida formalización documental. A la fecha, no reposan en archivo físico los extractos bancarios cruzados con los libros auxiliares contables, ni las respectivas hojas de trabajo de conciliación. Más crítico aún, no existe evidencia de revisión (firmas o vistos buenos) por parte de la Administración ni del Consejo de Administración. Actualmente, los estados financieros se están generando sin una validación supervisada de la disponibilidad real de efectivo, dependiendo exclusivamente del criterio del área contable.`,
+            plan_accion: `Institucionalizar el cierre mensual de tesorería mediante la creación de una Carpeta de Conciliaciones. Este procedimiento debe ser de cumplimiento obligatorio e incluir:
 1. Impresión mensual de la conciliación, el extracto bancario y el auxiliar contable.
 2. Protocolo de Firmas: El documento debe contar con la firma de elaboración (Contador), revisión (Administrador) y aprobación/validación (Consejero designado o Tesorero). Esta medida es indispensable para romper la dependencia funcional entre el Contador y el Administrador, garantizando un control externo por parte del Consejo.`,
-                riesgos: `1. Riesgo de Fraude y Malversación de Activos ("Jineteo"): La falta de revisión externa de los extractos permite la manipulación de saldos. Esto facilita prácticas como el "jineteo de fondos" (cubrir faltantes con ingresos posteriores) o la ocultación de retiros no autorizados, los cuales pueden permanecer indetectados durante meses si nadie coteja el banco contra la contabilidad.
+            riesgos: `1. Riesgo de Fraude y Malversación de Activos ("Jineteo"): La falta de revisión externa de los extractos permite la manipulación de saldos. Esto facilita prácticas como el "jineteo de fondos" (cubrir faltantes con ingresos posteriores) o la ocultación de retiros no autorizados, los cuales pueden permanecer indetectados durante meses si nadie coteja el banco contra la contabilidad.
 2. Falta de Razonabilidad Financiera (Información Errónea): Sin conciliaciones firmadas y revisadas, los Estados Financieros presentados a la Asamblea podrían no reflejar la realidad económica de la copropiedad. Partidas conciliatorias antiguas o errores bancarios no reclamados distorsionan el saldo real de caja, llevando a tomar decisiones presupuestales basadas en dinero que no existe.
 3. Responsabilidad Solidaria del Consejo (Culpa in vigilando): El Consejo de Administración tiene el deber de supervisar la gestión económica. Aprobar gastos o estados financieros sin haber visto la evidencia física de que la plata en bancos coincide con la contabilidad, expone a los consejeros a responder con su propio patrimonio en caso de un desfalco, por no haber ejercido su deber de vigilancia.`,
-                normativa: ``,
-                estado: `En Proceso`,
-                impacto: `Alto`,
-                categoria: `Control Interno`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-12`,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 1
-            },
-            {
-                id: 5,
-                titulo: `Póliza de protección digital`,
-                descripcion: `Teniendo en cuenta:
+            normativa: ``,
+            estado: `En Proceso`,
+            impacto: `Alto`,
+            categoria: `Control Interno`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-12`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 1,
+            es_nuevo: false
+        },
+        {
+            id: 5,
+            titulo: `Póliza de protección digital`,
+            descripcion: `Teniendo en cuenta:
 1. El incremento de fraudes electrónicos efectuados por hackers a propiedades horizontales sin necesidad de usuarios, contraseñas, ni tokens.
 2. La proliferación actual de cursos para la creación de malware y hackeo anunciado en plataformas como Udemy.
 3. La posibilidad que actualmente existe de efectuar pagos por PSE sin la necesidad de un aprobador.
 `,
-                plan_accion: `Se recomienda proteger a la copropiedad con la adquisición de una póliza de protección digital, que le permita a la copropiedad cubrirse de pérdidas millonarias por ataques cibernéticos. Adicionalmente se recomienda cerrar la posibilidad de efectuar pagos por PSE, que a su vez permite efectuar transferencias a través de portales como Nequi, etc. `,
-                riesgos: `1. Desfalco Patrimonial por Cibercrimen: Alta probabilidad de pérdida masiva de recursos financieros debido a la sofisticación de ataques (malware, phishing o ingeniería social) que eluden las medidas de seguridad básicas. Al no requerir tokens o doble autenticación en ciertos canales, el vaciamiento de las cuentas puede ocurrir en minutos sin generar alertas inmediatas.
+            plan_accion: `Se recomienda proteger a la copropiedad con la adquisición de una póliza de protección digital, que le permita a la copropiedad cubrirse de pérdidas millonarias por ataques cibernéticos. Adicionalmente se recomienda cerrar la posibilidad de efectuar pagos por PSE, que a su vez permite efectuar transferencias a través de portales como Nequi, etc. `,
+            riesgos: `1. Desfalco Patrimonial por Cibercrimen: Alta probabilidad de pérdida masiva de recursos financieros debido a la sofisticación de ataques (malware, phishing o ingeniería social) que eluden las medidas de seguridad básicas. Al no requerir tokens o doble autenticación en ciertos canales, el vaciamiento de las cuentas puede ocurrir en minutos sin generar alertas inmediatas.
 2. Indefensión Financiera (Ausencia de Transferencia del Riesgo): Al no contar con una póliza de protección digital, la copropiedad asume el 100% de la pérdida en caso de fraude. Dado que las entidades bancarias suelen exonerarse de responsabilidad si se utilizaron las claves correctas (aunque hayan sido robadas), la recuperación del dinero es improbable, afectando gravemente el patrimonio común.
 3. Parálisis Operativa e Insolvencia Súbita: Un ataque exitoso que drene la tesorería dejaría a la copropiedad sin liquidez inmediata para cubrir vigilancia, servicios públicos y mantenimientos, generando una crisis operativa y de seguridad física instantánea.`,
-                normativa: ``,
-                estado: `No Iniciado`,
-                impacto: `Alto`,
-                categoria: `Control Interno`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: ``,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 2
-            },
-            {
-                id: 6,
-                titulo: `Anclajes Certificados`,
-                descripcion: `No dispone de anclajes certificados en su estructura, lo que incrementa el riesgo de accidentes y genera una responsabilidad solidaria en caso de incidentes con contratistas.`,
-                plan_accion: `Gestionar la adquisición de anclajes certificados.`,
-                riesgos: `Responsabilidad legal y sanciones: Según la Resolución 4272 de 2021, la copropiedad debe garantizar condiciones seguras para el trabajo en alturas, lo que lo convierte en responsable solidario en indemnizaciones de alto costo. La omisión de estas medidas puede generar sanciones por parte del Ministerio del Trabajo.
+            normativa: ``,
+            estado: `No Iniciado`,
+            impacto: `Alto`,
+            categoria: `Control Interno`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-09`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 2,
+            es_nuevo: false
+        },
+        {
+            id: 6,
+            titulo: `Anclajes Certificados`,
+            descripcion: `No dispone de anclajes certificados en su estructura, lo que incrementa el riesgo de accidentes y genera una responsabilidad solidaria en caso de incidentes con contratistas.`,
+            plan_accion: `Gestionar la adquisición de anclajes certificados.`,
+            riesgos: `Responsabilidad legal y sanciones: Según la Resolución 4272 de 2021, la copropiedad debe garantizar condiciones seguras para el trabajo en alturas, lo que lo convierte en responsable solidario en indemnizaciones de alto costo. La omisión de estas medidas puede generar sanciones por parte del Ministerio del Trabajo.
 Suspensión de actividades: Una inspección de seguridad podría derivar en la prohibición de trabajos en altura hasta que se implementen las medidas de seguridad requeridas.`,
-                normativa: `Resolución  4272/2021 Mintrabajo`,
-                estado: `No Iniciado`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2026-01`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 7,
-                titulo: `Monitoreo de PQR`,
-                descripcion: `Se identificó que la administración no cuenta con un mecanismo formal de seguimiento para la atención de Peticiones, Quejas y Reclamos (PQR). La ausencia de un sistema estructurado de monitoreo puede afectar la trazabilidad, gestión oportuna y resolución efectiva de las solicitudes presentadas por los copropietarios y residentes.`,
-                plan_accion: `Implementar un sistema digital de radicación mediante códigos QR enlazados a un formulario institucional (ej. Google Forms). Punto Crítico: Se debe habilitar el acceso de "solo lectura" a la base de datos resultante (hoja de cálculo) para los miembros del Consejo de Administración. Esto permitirá al cuerpo colegiado ejercer su función de control en tiempo real, verificando el estado de los casos (abiertos/cerrados), los tiempos de respuesta y evitando que las solicitudes queden sin solución por omisión administrativa.`,
-                riesgos: `1. Ineficacia Administrativa Oculta: Al no existir monitoreo externo, el administrador puede ocultar, ignorar o dilatar la gestión de solicitudes complejas o incómodas. Esto genera una "gestión ciega" donde el Consejo desconoce los problemas reales de la comunidad hasta que escalan a conflictos mayores.
+            normativa: `Resolución  4272/2021 Mintrabajo`,
+            estado: `No Iniciado`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2026-01`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 7,
+            titulo: `Monitoreo de PQR`,
+            descripcion: `Se identificó que la administración no cuenta con un mecanismo formal de seguimiento para la atención de Peticiones, Quejas y Reclamos (PQR). La ausencia de un sistema estructurado de monitoreo puede afectar la trazabilidad, gestión oportuna y resolución efectiva de las solicitudes presentadas por los copropietarios y residentes.`,
+            plan_accion: `Implementar un sistema digital de radicación mediante códigos QR enlazados a un formulario institucional (ej. Google Forms). Punto Crítico: Se debe habilitar el acceso de "solo lectura" a la base de datos resultante (hoja de cálculo) para los miembros del Consejo de Administración. Esto permitirá al cuerpo colegiado ejercer su función de control en tiempo real, verificando el estado de los casos (abiertos/cerrados), los tiempos de respuesta y evitando que las solicitudes queden sin solución por omisión administrativa.`,
+            riesgos: `1. Ineficacia Administrativa Oculta: Al no existir monitoreo externo, el administrador puede ocultar, ignorar o dilatar la gestión de solicitudes complejas o incómodas. Esto genera una "gestión ciega" donde el Consejo desconoce los problemas reales de la comunidad hasta que escalan a conflictos mayores.
 2. Responsabilidad Solidaria por "Culpa in Vigilando": El Consejo de Administración tiene el deber legal de supervisar la gestión. Si una PQR no atendida (ej. un arreglo locativo urgente) deriva en un perjuicio mayor o una demanda, los consejeros podrían ser solidariamente responsables por no haber ejercido los controles necesarios sobre la administración.
 3. Riesgo Jurídico y de Silencio Administrativo: La falta de alertas tempranas y seguimiento aumenta la probabilidad de vencer los términos legales para responder Derechos de Petición (10, 15 o 30 días según la ley colombiana), exponiendo a la copropiedad a tutelas y sanciones por vulneración de derechos fundamentales.
 4. Desgaste de la Legitimidad del Consejo: Si los copropietarios perciben que sus quejas no se resuelven y que el Consejo "no hace nada" (porque no se entera), se deteriora la gobernabilidad y la confianza en el cuerpo colegiado, generando asambleas conflictivas.`,
-                normativa: `Ley Estatutaria 1755 de 2015.`,
-                estado: `Completado`,
-                impacto: `Alto`,
-                categoria: `Control Interno`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-07`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 8,
-                titulo: `Política de Cartera`,
-                descripcion: `Ausencia de lineamientos para las etapas de cobro (prejurídico y jurídico) y determinación de quien asume los costos de cobranza (honorarios, trámites y certificados).`,
-                plan_accion: `Establecer un marco jurídico y administrativo claro para la gestión de cartera, garantizando la liquidez y protegiendo el presupuesto del conjunto.`,
-                riesgos: `1. Riesgo de Liquidez: El retraso en la recuperación de cartera por falta de procesos estandarizados afecta el flujo de caja necesario para cumplir con las obligaciones operativas de la copropiedad. 2. Inseguridad Jurídica: La falta de reglas claras puede dar lugar a impugnaciones o reclamaciones por parte de los copropietarios ante procesos de cobro percibidos como arbitrarios o inconsistentes.  `,
-                normativa: ``,
-                estado: `En Proceso`,
-                impacto: `Alto`,
-                categoria: `Control Interno`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2026-01`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 9,
-                titulo: `Propiedad Planta y Equipo`,
-                descripcion: `Se evidenció que la copropiedad posee bienes que cumplirían con los criterios de reconocimiento bajo NIIF, sin embargo, estos no han sido incluidos en los estados financieros. Así mismo, no se cuenta con un inventario detallado que permita conocer la composición de los activos fijos, incluyendo su descripción, cantidad, costo histórico, vida útil, depreciación acumulada y gasto por depreciación.
+            normativa: `Ley Estatutaria 1755 de 2015.`,
+            estado: `Completado`,
+            impacto: `Alto`,
+            categoria: `Control Interno`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-07`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 8,
+            titulo: `Política de Cartera`,
+            descripcion: `Ausencia de lineamientos para las etapas de cobro (prejurídico y jurídico) y determinación de quien asume los costos de cobranza (honorarios, trámites y certificados).`,
+            plan_accion: `Establecer un marco jurídico y administrativo claro para la gestión de cartera, garantizando la liquidez y protegiendo el presupuesto del conjunto.`,
+            riesgos: `1. Riesgo de Liquidez: El retraso en la recuperación de cartera por falta de procesos estandarizados afecta el flujo de caja necesario para cumplir con las obligaciones operativas de la copropiedad. 2. Inseguridad Jurídica: La falta de reglas claras puede dar lugar a impugnaciones o reclamaciones por parte de los copropietarios ante procesos de cobro percibidos como arbitrarios o inconsistentes.  `,
+            normativa: ``,
+            estado: `En Proceso`,
+            impacto: `Alto`,
+            categoria: `Control Interno`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2026-01`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 9,
+            titulo: `Propiedad Planta y Equipo`,
+            descripcion: `Se evidenció que la copropiedad posee bienes que cumplirían con los criterios de reconocimiento bajo NIIF, sin embargo, estos no han sido incluidos en los estados financieros. Así mismo, no se cuenta con un inventario detallado que permita conocer la composición de los activos fijos, incluyendo su descripción, cantidad, costo histórico, vida útil, depreciación acumulada y gasto por depreciación.
 Dado que no se dispone de un inventario detallado de los activos de PPE, no es posible verificar la existencia y valuación de estos bienes dentro de los estados financieros. Esto impide evaluar su impacto en la presentación razonable de la información financiera, lo que constituye una limitación en el alcance sobre los rubros de Activos Fijos y Gasto por Depreciación. Adicionalmente, los activos registrados se encuentran totalmente depreciados, asiendo aún utilizados por la copropiedad.
 Medición de Propiedad, Planta y Equipo:
 La copropiedad debe reconocer los elementos de PPE al costo de adquisición menos cualquier descuento, rebaja o bonificación. Además, la depreciación de estos activos debe calcularse en función de la vida útil estimada y registrada en los estados financieros. En caso que los activos se hayan recibido mediante una cesión a título gratuito con un tercero no vinculado, ni relacionado de forma contractual, la copropiedad deberá elaborar una política contable teniendo en cuenta lo establecido en la Sección 24 de NIIF para las Pymes.
 Depreciación y deterioro:
 Si la copropiedad opta por reconocer la adquisición de estos activos como PPE, es obligatorio aplicar una política de depreciación, determinada con base en la estimación de su vida útil. Además, cualquier deterioro de valor debe ser registrado en el estado de resultados.`,
-                plan_accion: `1. Realizar un levantamiento físico de los activos fijos a través de un tercero especializado. 2. Registrar adecuadamente los activos en los estados financieros conforme a los principios contables aplicables.`,
-                riesgos: `Adicional al tema de limitación en el alcance sobre los rubros indicados, en caso de un siniestro sobre los mismos, se podría presentar dificultad para la copropiedad al justificar la titularidad de los bienes, por lo que la aseguradora podría solicitar pruebas adicionales sobre su propiedad, aumentando el tiempo de respuesta en caso de un siniestro o eventualmente, exponer los bienes a un vacío por cobertura. `,
-                normativa: `Orientación Técnica No. 15 del CTCP`,
-                estado: `No Iniciado`,
-                impacto: `Alto`,
-                categoria: `Razonabilidad EEFF`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-06`,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 3
-            },
-            {
-                id: 10,
-                titulo: `Antivirus`,
-                descripcion: `Durante nuestra visita inicial de auditoría, fue posible evidenciar en ordenadores del área administrativa, la carencia de un antivirus instalado.`,
-                plan_accion: `Se recomienda instalar antivirus en todos los ordenadores de la copropiedad, así como el uso de VPNs y teclados virtuales al momento de efectuar transacciones bancarias. `,
-                riesgos: `1. Exposición a malware y ciberataques: La ausencia de un antivirus incrementa la probabilidad de infecciones por software malicioso, poniendo en riesgo información financiera y operativa. 2. Fraudes financieros: Un sistema sin protección puede facilitar ataques dirigidos a interceptar credenciales bancarias o modificar transacciones electrónicas. 3. Pérdida de datos críticos: Un ciberataque podría comprometer la integridad de los archivos administrativos y contables, afectando la operatividad y trazabilidad de la información. 4. Riesgo ampliado por conexiones remotas y uso de PSE: Considerando el hallazgo previo sobre seguridad digital, la combinación de transacciones bancarias sin seguridad adicional y equipos desprotegidos potencia el riesgo de fraudes y accesos no autorizados.`,
-                normativa: ``,
-                estado: `No Iniciado`,
-                impacto: `Medio`,
-                categoria: `Control Interno`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-08`,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 1
-            },
-            {
-                id: 11,
-                titulo: `Publicación Actas Consejo`,
-                descripcion: `Se evidenció que no se está cumpliendo con la obligación de publicar las actas del Consejo de Administración, conforme lo establece el Artículo 68, Literal d. Esta falta de divulgación impide que los copropietarios estén informados sobre las decisiones tomadas y afecta la transparencia en la gestión.`,
-                plan_accion: `Implementar la publicación periódica de boletines del Consejo de Administración, con un resumen de los aspectos más relevantes de cada acta, garantizando el acceso a la información sin comprometer temas de carácter reservado.`,
-                riesgos: `1. Riesgo jurídico y de gobernabilidad: La ausencia de actas firmadas y formalizadas compromete la validez legal de las decisiones adoptadas, lo que puede dar lugar a nulidades, disputas internas o procesos judiciales por parte de terceros que cuestionen la legitimidad de las actuaciones de la administración o del consejo. Genera riesgos de responsabilidad para los administradores y consejeros, al no poder justificar sus actuaciones.
+            plan_accion: `1. Realizar un levantamiento físico de los activos fijos a través de un tercero especializado. 2. Registrar adecuadamente los activos en los estados financieros conforme a los principios contables aplicables.`,
+            riesgos: `Adicional al tema de limitación en el alcance sobre los rubros indicados, en caso de un siniestro sobre los mismos, se podría presentar dificultad para la copropiedad al justificar la titularidad de los bienes, por lo que la aseguradora podría solicitar pruebas adicionales sobre su propiedad, aumentando el tiempo de respuesta en caso de un siniestro o eventualmente, exponer los bienes a un vacío por cobertura. `,
+            normativa: `Orientación Técnica No. 15 del CTCP`,
+            estado: `No Iniciado`,
+            impacto: `Alto`,
+            categoria: `Razonabilidad EEFF`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-06`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 3,
+            es_nuevo: false
+        },
+        {
+            id: 10,
+            titulo: `Antivirus`,
+            descripcion: `Durante nuestra visita inicial de auditoría, fue posible evidenciar en ordenadores del área administrativa, la carencia de un antivirus instalado.`,
+            plan_accion: `Se recomienda instalar antivirus en todos los ordenadores de la copropiedad, así como el uso de VPNs y teclados virtuales al momento de efectuar transacciones bancarias. `,
+            riesgos: `1. Exposición a malware y ciberataques: La ausencia de un antivirus incrementa la probabilidad de infecciones por software malicioso, poniendo en riesgo información financiera y operativa. 2. Fraudes financieros: Un sistema sin protección puede facilitar ataques dirigidos a interceptar credenciales bancarias o modificar transacciones electrónicas. 3. Pérdida de datos críticos: Un ciberataque podría comprometer la integridad de los archivos administrativos y contables, afectando la operatividad y trazabilidad de la información. 4. Riesgo ampliado por conexiones remotas y uso de PSE: Considerando el hallazgo previo sobre seguridad digital, la combinación de transacciones bancarias sin seguridad adicional y equipos desprotegidos potencia el riesgo de fraudes y accesos no autorizados.`,
+            normativa: ``,
+            estado: `No Iniciado`,
+            impacto: `Medio`,
+            categoria: `Control Interno`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-08`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 1,
+            es_nuevo: false
+        },
+        {
+            id: 11,
+            titulo: `Publicación Actas Consejo`,
+            descripcion: `Se evidenció que no se está cumpliendo con la obligación de publicar las actas del Consejo de Administración, conforme lo establece el Artículo 68, Literal d. Esta falta de divulgación impide que los copropietarios estén informados sobre las decisiones tomadas y afecta la transparencia en la gestión.`,
+            plan_accion: `Implementar la publicación periódica de boletines del Consejo de Administración, con un resumen de los aspectos más relevantes de cada acta, garantizando el acceso a la información sin comprometer temas de carácter reservado.`,
+            riesgos: `1. Riesgo jurídico y de gobernabilidad: La ausencia de actas firmadas y formalizadas compromete la validez legal de las decisiones adoptadas, lo que puede dar lugar a nulidades, disputas internas o procesos judiciales por parte de terceros que cuestionen la legitimidad de las actuaciones de la administración o del consejo. Genera riesgos de responsabilidad para los administradores y consejeros, al no poder justificar sus actuaciones.
 2. Riesgo operativo: La falta de trazabilidad de decisiones impide verificar el cumplimiento de instrucciones, aprobación de presupuestos, proyectos, contratos o ajustes de cuotas de administración, dificultando la ejecución efectiva de la gestión.
 3. Riesgo para la revisoría fiscal y los órganos de control:
 La ausencia de soporte documental formalizado limita el alcance de la auditoría, imposibilitando validar de forma plena la legalidad y oportunidad de las decisiones tomadas en los órganos de dirección de la copropiedad.`,
-                normativa: `Artículo 68, Literal d, RPH.`,
-                estado: `En Proceso`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-12`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 12,
-                titulo: `Programa de Prevención y Protección contra Caídas en Alturas`,
-                descripcion: `Se evidenció que la copropiedad no cuenta con un Programa de Prevención y Protección contra Caídas en Alturas (PPCA), a pesar de que las labores en altura son recurrentes. `,
-                plan_accion: `Diseñar e implementar el PPCA y garantizar que todo contratista cumpla con los estándares de seguridad vigentes. `,
-                riesgos: `1. Responsabilidad Civil y Penal: Demandas por perjuicios (daño emergente, lucro cesante y daño moral) y posibles investigaciones penales contra el Representante Legal y el Consejo, por negligencia u omisión en el deber de cuidado. 2. Impacto Presupuestal: Gastos imprevistos de alta cuantía por concepto de defensas jurídicas e indemnizaciones no cubiertas por pólizas debido al incumplimiento normativo. 3. Riesgo Vital: Alta probabilidad de fatalidades o lesiones incapacitantes permanentes debido a la improvisación en los métodos de sujeción.`,
-                normativa: `Resolución  4272/2021 Mintrabajo`,
-                estado: `No Iniciado`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-10`,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 1
-            },
-            {
-                id: 13,
-                titulo: `Censo de mascotas`,
-                descripcion: `No se evidencia registro de caninos que permita efectuar seguimiento a la suscripción de la póliza para aquellos considerados de "manejo especial".`,
-                plan_accion: `La copropiedad en cabeza de la administración, deberá controlar el registro y solicitar a los propietarios de caninos considerados de “manejo especial”, la respectiva póliza de responsabilidad extracontractual que con este reciente decreto, se hace de obligatorio cumplimiento.
+            normativa: `Artículo 68, Literal d, RPH.`,
+            estado: `En Proceso`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-12`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 12,
+            titulo: `Programa de Prevención y Protección contra Caídas en Alturas`,
+            descripcion: `Se evidenció que la copropiedad no cuenta con un Programa de Prevención y Protección contra Caídas en Alturas (PPCA), a pesar de que las labores en altura son recurrentes. `,
+            plan_accion: `Diseñar e implementar el PPCA y garantizar que todo contratista cumpla con los estándares de seguridad vigentes. `,
+            riesgos: `1. Responsabilidad Civil y Penal: Demandas por perjuicios (daño emergente, lucro cesante y daño moral) y posibles investigaciones penales contra el Representante Legal y el Consejo, por negligencia u omisión en el deber de cuidado. 2. Impacto Presupuestal: Gastos imprevistos de alta cuantía por concepto de defensas jurídicas e indemnizaciones no cubiertas por pólizas debido al incumplimiento normativo. 3. Riesgo Vital: Alta probabilidad de fatalidades o lesiones incapacitantes permanentes debido a la improvisación en los métodos de sujeción.`,
+            normativa: `Resolución  4272/2021 Mintrabajo`,
+            estado: `No Iniciado`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-10`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 1,
+            es_nuevo: false
+        },
+        {
+            id: 13,
+            titulo: `Censo de mascotas`,
+            descripcion: `No se evidencia registro de caninos que permita efectuar seguimiento a la suscripción de la póliza para aquellos considerados de "manejo especial".`,
+            plan_accion: `La copropiedad en cabeza de la administración, deberá controlar el registro y solicitar a los propietarios de caninos considerados de “manejo especial”, la respectiva póliza de responsabilidad extracontractual que con este reciente decreto, se hace de obligatorio cumplimiento.
 Para efectos de la ley se entenderán como caninos de “manejo especial” los siguientes:
 1. Caninos que han tenido episodios de agresiones a personas; o le hayan causado la muerte a otros perros. 
 2. Caninos que han sido adiestrados para el ataque y la defensa.
 3. Caninos que pertenecen a una de las siguientes razas o a sus cruces o híbridos: American Staffordshire Terrier, Bullmastiff, Dóberman, Dogo Argentino, Dogo de Burdeos, Fila Brasileiro, Mastín Napolitano, Bull Terrier, Pit Bull Terrier, American Pit Bull Terrier, de presa canario, Rottweiler, Staffordshire Terrier, Tosa Japonés y aquellas nuevas razas o mezclas de razas que el Gobierno nacional determine. Se recomienda crear formato de registro de caninos, incluyendo campos relacionados con su tenencia tales como: raza, si se encuentra en la clasificación, No. de Póliza, Vigencia, Antecedentes, etc.`,
-                riesgos: `1. Riesgo legal: El incumplimiento de la obligación de registro y control de pólizas podría dar lugar a responsabilidad compartida o solidaria de la copropiedad en caso de incidentes con animales clasificados de manejo especial. 2. Riesgo de convivencia: La ausencia de medidas preventivas frente a caninos agresivos puede derivar en conflictos entre vecinos, deterioro de la convivencia y quejas ante entes de control.`,
-                normativa: `Decreto 380 de 2022 Mindefensa`,
-                estado: `Completado`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-06`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 14,
-                titulo: `Lugar de custodia de CDTs`,
-                descripcion: `Durante el proceso de verificación de activos financieros, se constató que los Certificados de Depósito a Término (CDT) no se encuentran bajo custodia en la oficina de administración ni en una caja de seguridad institucional. Dentro de los principios de Control Interno, los activos de la entidad deben estar debidamente protegidos, asegurados y localizados en el domicilio legal de la persona jurídica.`,
-                plan_accion: `1. Realizar el traslado físico de los títulos a la oficina del conjunto. 2. Adquirir una caja fuerte ignífuga (resistente al fuego) para la oficina de administración, con acceso restringido y bajo llave. `,
-                riesgos: `1. Riesgo de Pérdida o Deterioro: Exposición a siniestros en el domicilio particular (incendio, inundación, pérdida física) que dificulten el cobro o reposición del título ante la entidad bancaria. 2. Riesgo de Fraude o Uso Indebido: La falta de control dual y la tenencia exclusiva por parte de una sola persona facilita posibles maniobras de endoso o pignoración no autorizada. 3. Riesgo de Ilocalización: En caso de ausencia repentina o cese de funciones del administrador, la copropiedad no tendría acceso inmediato a sus recursos financieros. 4. Riesgo Legal: Incumplimiento de los deberes de diligencia y cuidado de los bienes ajenos, lo cual podría derivar en responsabilidad civil para el administrador y el Consejo de Administración por omisión en la supervisión.`,
-                normativa: `Artículo 51 Ley 675/2001`,
-                estado: `Completado`,
-                impacto: `Alto`,
-                categoria: `Control Interno`,
-                fecha_identificacion: `2025-05`,
-                fecha_compromiso: `2025-07`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 15,
-                titulo: `Publicación extemporánea de Acta de Asamblea`,
-                descripcion: `Publicación extemporánea de Acta de Asamblea
+            riesgos: `1. Riesgo legal: El incumplimiento de la obligación de registro y control de pólizas podría dar lugar a responsabilidad compartida o solidaria de la copropiedad en caso de incidentes con animales clasificados de manejo especial. 2. Riesgo de convivencia: La ausencia de medidas preventivas frente a caninos agresivos puede derivar en conflictos entre vecinos, deterioro de la convivencia y quejas ante entes de control.`,
+            normativa: `Decreto 380 de 2022 Mindefensa`,
+            estado: `Completado`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-06`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 14,
+            titulo: `Lugar de custodia de CDTs`,
+            descripcion: `Durante el proceso de verificación de activos financieros, se constató que los Certificados de Depósito a Término (CDT) no se encuentran bajo custodia en la oficina de administración ni en una caja de seguridad institucional. Dentro de los principios de Control Interno, los activos de la entidad deben estar debidamente protegidos, asegurados y localizados en el domicilio legal de la persona jurídica.`,
+            plan_accion: `1. Realizar el traslado físico de los títulos a la oficina del conjunto. 2. Adquirir una caja fuerte ignífuga (resistente al fuego) para la oficina de administración, con acceso restringido y bajo llave. `,
+            riesgos: `1. Riesgo de Pérdida o Deterioro: Exposición a siniestros en el domicilio particular (incendio, inundación, pérdida física) que dificulten el cobro o reposición del título ante la entidad bancaria. 2. Riesgo de Fraude o Uso Indebido: La falta de control dual y la tenencia exclusiva por parte de una sola persona facilita posibles maniobras de endoso o pignoración no autorizada. 3. Riesgo de Ilocalización: En caso de ausencia repentina o cese de funciones del administrador, la copropiedad no tendría acceso inmediato a sus recursos financieros. 4. Riesgo Legal: Incumplimiento de los deberes de diligencia y cuidado de los bienes ajenos, lo cual podría derivar en responsabilidad civil para el administrador y el Consejo de Administración por omisión en la supervisión.`,
+            normativa: `Artículo 51 Ley 675/2001`,
+            estado: `Completado`,
+            impacto: `Alto`,
+            categoria: `Control Interno`,
+            fecha_identificacion: `2025-05`,
+            fecha_compromiso: `2025-07`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 15,
+            titulo: `Publicación extemporánea de Acta de Asamblea`,
+            descripcion: `Publicación extemporánea de Acta de Asamblea
 Se evidenció que, a la fecha de la presente auditoría, no se ha efectuado de manera oportuna la publicación del acta correspondiente a la asamblea general de copropietarios celebrada el 5 de abril de 2025, incumpliendo los términos establecidos en la normatividad vigente.
 
 Criterio:
@@ -1292,186 +1306,194 @@ El incumplimiento del plazo legal para la publicación del acta de asamblea expo
 Causa:
 Retrasos en la verificación o validación del acta por parte de la comisión designada o falta de gestión oportuna por parte de la administración para garantizar su publicación en los plazos estipulados por la ley.
 `,
-                plan_accion: `1. Dar cumplimiento estricto a lo dispuesto en el artículo 47 de la Ley 675 de 2001, garantizando que la redacción, verificación y publicación del acta de asamblea se realice dentro de los veinte (20) días hábiles siguientes a la celebración de la misma, dejando constancia en el libro de actas sobre su publicación.
+            plan_accion: `1. Dar cumplimiento estricto a lo dispuesto en el artículo 47 de la Ley 675 de 2001, garantizando que la redacción, verificación y publicación del acta de asamblea se realice dentro de los veinte (20) días hábiles siguientes a la celebración de la misma, dejando constancia en el libro de actas sobre su publicación.
 2. Para futuras asambleas, se recomienda que la solicitud de revisión del acta por parte de la comisión verificadora se acompañe de una cláusula de silencio administrativo positivo, de modo que si en un plazo previamente definido (por ejemplo, cinco días hábiles) no se reciben observaciones por parte de la comisión, se entienda validado el contenido del acta por parte de los verificadores designados, permitiendo su publicación dentro del término legal sin dilaciones.
 `,
-                riesgos: `1. Riesgo jurídico y de gobernabilidad: La ausencia de actas firmadas y formalizadas compromete la validez legal de las decisiones adoptadas, lo que puede dar lugar a nulidades, disputas internas o procesos judiciales por parte de terceros que cuestionen la legitimidad de las actuaciones de la administración o del consejo. Genera riesgos de responsabilidad para los administradores y consejeros, al no poder justificar sus actuaciones.
+            riesgos: `1. Riesgo jurídico y de gobernabilidad: La ausencia de actas firmadas y formalizadas compromete la validez legal de las decisiones adoptadas, lo que puede dar lugar a nulidades, disputas internas o procesos judiciales por parte de terceros que cuestionen la legitimidad de las actuaciones de la administración o del consejo. Genera riesgos de responsabilidad para los administradores y consejeros, al no poder justificar sus actuaciones.
 2. Riesgo operativo: La falta de trazabilidad de decisiones impide verificar el cumplimiento de instrucciones, aprobación de presupuestos, proyectos, contratos o ajustes de cuotas de administración, dificultando la ejecución efectiva de la gestión.
 3. Riesgo para la revisoría fiscal y los órganos de control:
 La ausencia de soporte documental formalizado limita el alcance de la auditoría, imposibilitando validar de forma plena la legalidad y oportunidad de las decisiones tomadas en los órganos de dirección de la copropiedad.`,
-                normativa: `Artículo 47 de la Ley 675 de 2001.`,
-                estado: `Completado`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-06`,
-                fecha_compromiso: `2025-08`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 16,
-                titulo: `Publicación desactualizada de consignaciones pendientes por identificar`,
-                descripcion: `Se evidenció que no se ha continuado con la publicación periódica del listado de consignaciones pendientes por identificar, siendo el último corte divulgado correspondiente al mes de febrero de 2025. Desde esa fecha, no se han actualizado ni comunicado públicamente nuevos reportes que permitan a los copropietarios verificar el estado de sus pagos no aplicados o erróneamente registrados.
+            normativa: `Artículo 47 de la Ley 675 de 2001.`,
+            estado: `Completado`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-06`,
+            fecha_compromiso: `2025-08`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 16,
+            titulo: `Publicación desactualizada de consignaciones pendientes por identificar`,
+            descripcion: `Se evidenció que no se ha continuado con la publicación periódica del listado de consignaciones pendientes por identificar, siendo el último corte divulgado correspondiente al mes de febrero de 2025. Desde esa fecha, no se han actualizado ni comunicado públicamente nuevos reportes que permitan a los copropietarios verificar el estado de sus pagos no aplicados o erróneamente registrados.
 1. Criterio:
 Dentro de los principios de transparencia y adecuada gestión financiera en propiedad horizontal, es fundamental garantizar la divulgación continua y oportuna de la información relacionada con pagos no identificados, con el fin de facilitar su correcta aplicación, evitar acumulación de saldos no compensados en cartera y prevenir reclamaciones innecesarias. Lo anterior se encuentra alineado con los deberes generales del administrador establecidos en el artículo 51 de la Ley 675 de 2001, en cuanto a la correcta administración de los recursos de la copropiedad, la claridad en la rendición de cuentas y el deber de mantener informados a los propietarios.
 `,
-                plan_accion: `1. Retomar de manera inmediata la actualización y publicación mensual del reporte de consignaciones no identificadas, asegurando su inclusión en los medios oficiales de comunicación de la copropiedad. 2. Igualmente, se sugiere establecer un cronograma fijo y de obligatorio cumplimiento para su divulgación, con el fin de garantizar su permanencia y oportunidad como parte de los controles financieros del proceso de recaudo.`,
-                riesgos: `1. Dificultades en la conciliación de cartera y en la trazabilidad de ingresos.
+            plan_accion: `1. Retomar de manera inmediata la actualización y publicación mensual del reporte de consignaciones no identificadas, asegurando su inclusión en los medios oficiales de comunicación de la copropiedad. 2. Igualmente, se sugiere establecer un cronograma fijo y de obligatorio cumplimiento para su divulgación, con el fin de garantizar su permanencia y oportunidad como parte de los controles financieros del proceso de recaudo.`,
+            riesgos: `1. Dificultades en la conciliación de cartera y en la trazabilidad de ingresos.
 2. Afectación al flujo de caja, al mantener recursos improductivos en cuentas no aplicadas.
 3. Posibles reclamos por parte de propietarios, en caso de cobros indebidos o falta de aplicación de pagos realizados.
 4. Desconfianza en la gestión administrativa, por la falta de visibilidad y transparencia sobre el tratamiento de los pagos
 `,
-                normativa: `Artículo 51 Ley 675/2001`,
-                estado: `Completado`,
-                impacto: `Alto`,
-                categoria: `Control Interno`,
-                fecha_identificacion: `2025-06`,
-                fecha_compromiso: `2025-09`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 17,
-                titulo: `Pruebas de Potabilidad`,
-                descripcion: `Durante la revisión documental y de cumplimiento normativo de la copropiedad, se evidenció que no se encontró soporte alguno sobre la realización de pruebas de potabilidad en los tanques de almacenamiento de agua potable, ni evidencia de análisis físico-químicos o microbiológicos durante el período fiscal auditado.`,
-                plan_accion: `Programar de manera inmediata la realización de pruebas físico-químicas y microbiológicas del agua contenida en los tanques de reserva, a través de laboratorios autorizados por el Ministerio de Salud.
+            normativa: `Artículo 51 Ley 675/2001`,
+            estado: `Completado`,
+            impacto: `Alto`,
+            categoria: `Control Interno`,
+            fecha_identificacion: `2025-06`,
+            fecha_compromiso: `2025-09`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 17,
+            titulo: `Pruebas de Potabilidad`,
+            descripcion: `Durante la revisión documental y de cumplimiento normativo de la copropiedad, se evidenció que no se encontró soporte alguno sobre la realización de pruebas de potabilidad en los tanques de almacenamiento de agua potable, ni evidencia de análisis físico-químicos o microbiológicos durante el período fiscal auditado.`,
+            plan_accion: `Programar de manera inmediata la realización de pruebas físico-químicas y microbiológicas del agua contenida en los tanques de reserva, a través de laboratorios autorizados por el Ministerio de Salud.
 Divulgar los resultados de las pruebas a los residentes, como medida de transparencia y tranquilidad colectiva.`,
-                riesgos: `Responsabilidad Penal y Civil (El riesgo más alto): Si ocurre un brote de enfermedad (ej. E. Coli o gastroenteritis masiva) en el edificio, el administrador puede enfrentar demandas por lesiones personales culposas. La prueba de potabilidad es su único "seguro" para demostrar que el agua no fue la causa.`,
-                normativa: `1. Decreto 1575 de 2007.
+            riesgos: `Responsabilidad Penal y Civil (El riesgo más alto): Si ocurre un brote de enfermedad (ej. E. Coli o gastroenteritis masiva) en el edificio, el administrador puede enfrentar demandas por lesiones personales culposas. La prueba de potabilidad es su único "seguro" para demostrar que el agua no fue la causa.`,
+            normativa: `1. Decreto 1575 de 2007.
 2. Resolución 2115 de 2007.`,
-                estado: `No Iniciado`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-06`,
-                fecha_compromiso: `2026-09`,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 1
-            },
-            {
-                id: 18,
-                titulo: `Certificación Red Contra Incendios`,
-                descripcion: `Durante la auditoría se identificó que la copropiedad no cuenta con registros ni evidencias de haber realizado pruebas pitométricas u otras verificaciones técnicas periódicas que permitan confirmar la funcionalidad, presión y operatividad adecuada de la red contra incendios instalada.
+            estado: `No Iniciado`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-06`,
+            fecha_compromiso: `2026-09`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 1,
+            es_nuevo: false
+        },
+        {
+            id: 18,
+            titulo: `Certificación Red Contra Incendios`,
+            descripcion: `Durante la auditoría se identificó que la copropiedad no cuenta con registros ni evidencias de haber realizado pruebas pitométricas u otras verificaciones técnicas periódicas que permitan confirmar la funcionalidad, presión y operatividad adecuada de la red contra incendios instalada.
 Esta omisión representa una debilidad en los controles de seguridad humana, dado que no se puede asegurar técnicamente que el sistema responda de forma eficaz en caso de emergencia, afectando la integridad de las personas y los bienes comunes.
 `,
-                plan_accion: `1. Programar y documentar una prueba pitométrica o técnica equivalente de la red contra incendios, realizada por proveedor especializado y autorizado.
+            plan_accion: `1. Programar y documentar una prueba pitométrica o técnica equivalente de la red contra incendios, realizada por proveedor especializado y autorizado.
 2. Solicitar concepto técnico del Cuerpo Oficial de Bomberos que verifique el cumplimiento de las condiciones de seguridad y operatividad del sistema.
 3. Implementar un plan de mantenimiento preventivo y correctivo sobre la red, con periodicidad mínima anual.
 4. Registrar y archivar formalmente todos los informes técnicos y conceptos, asegurando su disponibilidad para revisiones futuras.
 5. Actualizar el Manual de Emergencias y el Plan de Seguridad con base en los resultados de dichas pruebas. 
 `,
-                riesgos: `1. Pérdida de Cobertura (Seguros): Alta probabilidad de que la aseguradora objete el pago de una indemnización por incendio, algando negligencia en el mantenimiento de los sistemas de protección (Incumplimiento de garantía). 2. Falla Operativa Catastrófica: Riesgo de que la red no alcance la presión o caudal hidraúlico necesarios en una emergencia, impidiendo la extinción del fuego y derivando en la pérdida total del inmueble. 3. Responsabilidad Penal y Civil: El Administrador y el Consejo, asumen responsabilidad directa por las pérdidas de vidas o bienes, al no garantizar la operatividad certificada de los equipos de seguridad humana. 4. Falsa Sensación de Seguridad: La comunidad confia en un sistema que podría estar inoperante (tuberías obstruidas, válvulas cerradas o bombas averiadas), retrasando la evacuación o la respuesa efectiva.  `,
-                normativa: `1. NSR-10 (Título J): Establece requisitos mínimos de protección contra incendios para edificaciones, incluyendo la exigencia de redes hidráulicas funcionales según el tipo y uso de la construcción.
+            riesgos: `1. Pérdida de Cobertura (Seguros): Alta probabilidad de que la aseguradora objete el pago de una indemnización por incendio, algando negligencia en el mantenimiento de los sistemas de protección (Incumplimiento de garantía). 2. Falla Operativa Catastrófica: Riesgo de que la red no alcance la presión o caudal hidraúlico necesarios en una emergencia, impidiendo la extinción del fuego y derivando en la pérdida total del inmueble. 3. Responsabilidad Penal y Civil: El Administrador y el Consejo, asumen responsabilidad directa por las pérdidas de vidas o bienes, al no garantizar la operatividad certificada de los equipos de seguridad humana. 4. Falsa Sensación de Seguridad: La comunidad confia en un sistema que podría estar inoperante (tuberías obstruidas, válvulas cerradas o bombas averiadas), retrasando la evacuación o la respuesa efectiva.  `,
+            normativa: `1. NSR-10 (Título J): Establece requisitos mínimos de protección contra incendios para edificaciones, incluyendo la exigencia de redes hidráulicas funcionales según el tipo y uso de la construcción.
 2. Ley 1575 de 2012 (Ley General de Bomberos): Faculta a los cuerpos oficiales de bomberos para inspeccionar y certificar las condiciones de seguridad humana, incluyendo la red contra incendios.
 3. Decreto 1077 de 2015: Compila el Reglamento Técnico de Construcción en el cual se exige mantener en condiciones óptimas los sistemas de protección.
 4. Buenas prácticas técnicas (NFPA 25): Recomiendan pruebas regulares como las pitométricas, para medir caudal, presión y verificar el adecuado estado del sistema.
 `,
-                estado: `En Proceso`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-06`,
-                fecha_compromiso: `2025-11`,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 1
-            },
-            {
-                id: 19,
-                titulo: `RPH Decreto 768 Julio 7 2025`,
-                descripcion: `Verificado el Reglamento de Propiedad Horizontal (RPH) vigente, se evidenció que sus disposiciones no se encuentran armonizadas con el Decreto 768 del 7 de julio de 2025. Este desfase normativo genera riesgos significativos para la copropiedad, dado lo siguiente:
+            estado: `En Proceso`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-06`,
+            fecha_compromiso: `2025-11`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 1,
+            es_nuevo: false
+        },
+        {
+            id: 19,
+            titulo: `RPH Decreto 768 Julio 7 2025`,
+            descripcion: `Verificado el Reglamento de Propiedad Horizontal (RPH) vigente, se evidenció que sus disposiciones no se encuentran armonizadas con el Decreto 768 del 7 de julio de 2025. Este desfase normativo genera riesgos significativos para la copropiedad, dado lo siguiente:
 1. El RPH omite la obligación explícita del Art. 2.2.8.18.12.1.6 de ser actualizado para garantizar que las autoridades de policía puedan actuar sin ambigüedad. Ya no se puede dejar el reglamento sin las actualizaciones en materia normativa que la Asamblea o demás estamentos hayan determinado como nuevas.
 2. No se contempla la obligación de mantener una copia actualizada del RPH y un censo de animales de compañía a disposición de las autoridades de policía para su consulta en recepción. Las normas sobre tenencia de mascotas no están alineadas con las nuevas exigencias, como la verificación del registro municipal y la póliza de responsabilidad civil para caninos de manejo especial.
 3. Los procedimientos disciplinarios internos no consideran la prohibición del Art. 2.2.8.18.12.1.1 sobre el uso de pruebas (videos, fotos) que vulneren la privacidad de la habitación.
 El RPH no regula el tratamiento de las actividades de esparcimiento que, por su permanencia, puedan ser consideradas actividades económicas y deban cumplir con los requisitos de la Ley 1801 de 2016.
 4. No se ha comunicado a los propietarios el mecanismo de cumplimiento forzoso mediante orden de policía del alcalde para la entrega de actas de asamblea, ni la consecuencia de considerar su inobservancia como un comportamiento contrario a la convivencia.
 5. El RPH podría contener restricciones sobre modificaciones a las ventanas que ahora son explícitamente permitidas por el decreto, como vidrios insonorizantes o películas de protección, generando conflictos normativos.`,
-                plan_accion: `1. Diagnóstico Jurídico: Realizar un análisis comparativo integral entre el RPH vigente y el Decreto 768 de 2025 para identificar la totalidad de los artículos que requieren ser modificados, incluyendo los procedimientos de entrega de actas, regulación de actividades económicas, gestión de pruebas, y normas de tenencia de mascotas, entre otros.
+            plan_accion: `1. Diagnóstico Jurídico: Realizar un análisis comparativo integral entre el RPH vigente y el Decreto 768 de 2025 para identificar la totalidad de los artículos que requieren ser modificados, incluyendo los procedimientos de entrega de actas, regulación de actividades económicas, gestión de pruebas, y normas de tenencia de mascotas, entre otros.
 2. Reforma del RPH: Elaborar un proyecto de reforma del reglamento que incorpore las nuevas obligaciones y procedimientos, para ser presentado ante la Asamblea de Propietarios.
 3. Protocolización: Una vez aprobada la reforma en la Asamblea, adelantar el trámite de elevación a escritura pública y su correspondiente registro en la Oficina de Instrumentos Públicos.
 4. Implementación de Procesos: Establecer y documentar los nuevos procedimientos internos que se derivan de la reforma, tales como el formato y mantenimiento del censo de mascotas, el protocolo para la recolección y custodia de pruebas, y los criterios para la autorización de eventos en áreas comunes.`,
-                riesgos: `1. Riesgo de Nulidad de Actuaciones: La imposición de sanciones con base en pruebas hoy consideradas inadmisibles o en normas desactualizadas podría llevar a que los procesos disciplinarios sean declarados nulos.
+            riesgos: `1. Riesgo de Nulidad de Actuaciones: La imposición de sanciones con base en pruebas hoy consideradas inadmisibles o en normas desactualizadas podría llevar a que los procesos disciplinarios sean declarados nulos.
 2. Riesgo de Sanciones Directas: La negativa a entregar un acta de asamblea podría escalar hasta convertirse en el desacato a una orden de policía, exponiendo a la administración a medidas correctivas.
 3. Riesgo Legal y de Litigios: La aplicación de un reglamento no armonizado expone a la copropiedad a acciones de tutela por parte de residentes que se vean afectados por normas internas que contravienen una ley superior.
 4. Riesgo de Ineficacia Policial: La ambigüedad o contradicción entre el RPH y el Código de Policía puede impedir o retrasar la intervención efectiva de las autoridades en situaciones de seguridad o convivencia.
 5. Riesgo de Convivencia: La falta de reglas claras y legalmente respaldadas`,
-                normativa: `Decreto 768 de 2025 Mindefensa`,
-                estado: `No Iniciado`,
-                impacto: `Medio`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-08`,
-                fecha_compromiso: `2025-11`,
-                fecha_compromiso_nueva: `2026-01`,
-                extensiones: 1
-            },
-            {
-                id: 20,
-                titulo: `Control y registro del presupuesto`,
-                descripcion: `Se identificó que el presupuesto de ingresos y egresos aprobado por la Asamblea General de Propietarios, llevada a cabo el 5 de abril de 2025, no ha sido cargado con exactitud en el sistema contable de la copropiedad. Esta omisión impide realizar un seguimiento y control adecuado del presupuesto de la copropiedad. Los registros contables no se pueden comparar con los montos presupuestados, lo que dificulta la identificación de desviaciones y el análisis de la gestión administrativa y financiera.
+            normativa: `Decreto 768 de 2025 Mindefensa`,
+            estado: `No Iniciado`,
+            impacto: `Medio`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-08`,
+            fecha_compromiso: `2025-10`,
+            fecha_compromiso_nueva: `2026-01`,
+            extensiones: 1,
+            es_nuevo: false
+        },
+        {
+            id: 20,
+            titulo: `Control y registro del presupuesto`,
+            descripcion: `Se identificó que el presupuesto de ingresos y egresos aprobado por la Asamblea General de Propietarios, llevada a cabo el 5 de abril de 2025, no ha sido cargado con exactitud en el sistema contable de la copropiedad. Esta omisión impide realizar un seguimiento y control adecuado del presupuesto de la copropiedad. Los registros contables no se pueden comparar con los montos presupuestados, lo que dificulta la identificación de desviaciones y el análisis de la gestión administrativa y financiera.
 Dentro de nuestra revisión fue posible identificar:
  Rubros en el presupuesto oficial que no están cargados en sistema (extractores locales, certificación de ascensores, certificación de puertas vehiculares, elementos de cafetería, red contra incendios, fondo de imprevistos).
  Rubros en el presupuesto oficial que presentan diferencias significativas respecto al sistema (Vigilancia, Aseo, Administración, etc).`,
-                plan_accion: `1. Cargar el Presupuesto: La administración debe cargar de inmediato el presupuesto de ingresos y egresos aprobado por la asamblea en el sistema contable. Esto debe incluir los montos presupuestados para cada rubro, como las cuotas de administración, gastos de mantenimiento, servicios públicos, etc. 2. Implementar control de carga: Una vez cargado el presupuesto, se deben configurar los informes contables para que permitan la comparación de los valores reales (ejecutados) con los valores presupuestados. Estos informes deben ser generados de manera periódica, preferiblemente mensual, y ser presentados al Consejo de Administración para su revisión. 3. Capacitación del Personal: Es crucial capacitar al personal administrativo en el uso del sistema contable y en la importancia de la gestión presupuestaria. Esto ayudará a garantizar que el presupuesto sea utilizado como una herramienta efectiva para la toma de decisiones y el control financiero.`,
-                riesgos: `1. Riesgo de Gestión Financiera Ineficiente: Sin un presupuesto cargado en el sistema, la administración no puede monitorear de manera efectiva los ingresos y egresos en tiempo real. Esto podría llevar a un uso descontrolado de los recursos, generando un déficit o un gasto excesivo en partidas no prioritarias.
+            plan_accion: `1. Cargar el Presupuesto: La administración debe cargar de inmediato el presupuesto de ingresos y egresos aprobado por la asamblea en el sistema contable. Esto debe incluir los montos presupuestados para cada rubro, como las cuotas de administración, gastos de mantenimiento, servicios públicos, etc. 2. Implementar control de carga: Una vez cargado el presupuesto, se deben configurar los informes contables para que permitan la comparación de los valores reales (ejecutados) con los valores presupuestados. Estos informes deben ser generados de manera periódica, preferiblemente mensual, y ser presentados al Consejo de Administración para su revisión. 3. Capacitación del Personal: Es crucial capacitar al personal administrativo en el uso del sistema contable y en la importancia de la gestión presupuestaria. Esto ayudará a garantizar que el presupuesto sea utilizado como una herramienta efectiva para la toma de decisiones y el control financiero.`,
+            riesgos: `1. Riesgo de Gestión Financiera Ineficiente: Sin un presupuesto cargado en el sistema, la administración no puede monitorear de manera efectiva los ingresos y egresos en tiempo real. Esto podría llevar a un uso descontrolado de los recursos, generando un déficit o un gasto excesivo en partidas no prioritarias.
 2. Riesgo de Falta de Control y Transparencia: La ausencia del presupuesto en el sistema contable impide que el revisor fiscal y la junta directiva realicen un control adecuado sobre la ejecución presupuestaria. Esto podría generar desconfianza por parte de los copropietarios y la junta, ya que no hay una forma fácil de verificar si se están cumpliendo los límites de gasto aprobados. 
 3. Riesgo de Toma de Decisiones Erróneas: Al no tener acceso a la comparación entre el presupuesto y la ejecución, la junta directiva y la administración pueden tomar decisiones financieras equivocadas, basadas en suposiciones y no en datos reales. Por ejemplo, podrían autorizar gastos no planeados sin saber el impacto que estos tendrían en la salud financiera de la copropiedad.
 `,
-                normativa: `NTS SI 02. Numeral 5.1`,
-                estado: `Completado`,
-                impacto: `Alto`,
-                categoria: `Razonabilidad EEFF`,
-                fecha_identificacion: `2025-09`,
-                fecha_compromiso: `2025-10`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 21,
-                titulo: `Diferencias Puntuales en Coeficientes (RPH Vs. Sistema Contable)`,
-                descripcion: `Como resultado de la evaluación selectiva de los coeficientes de copropiedad cargados en el sistema contable frente a lo estipulado en el Reglamento de Propiedad Horizontal (RPH), hemos identificado imprecisiones en la parametrización de unidades específicas. Estas diferencias, que afectan la correcta liquidación de expensas comunes, se evidenciaron en las siguientes unidades inmobiliarias: 407, 414, 501, 502, 505, 710, 1112, 9041, Local 1.
+            normativa: `NTS SI 02. Numeral 5.1`,
+            estado: `Completado`,
+            impacto: `Alto`,
+            categoria: `Razonabilidad EEFF`,
+            fecha_identificacion: `2025-09`,
+            fecha_compromiso: `2025-10`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 21,
+            titulo: `Diferencias Puntuales en Coeficientes (RPH Vs. Sistema Contable)`,
+            descripcion: `Como resultado de la evaluación selectiva de los coeficientes de copropiedad cargados en el sistema contable frente a lo estipulado en el Reglamento de Propiedad Horizontal (RPH), hemos identificado imprecisiones en la parametrización de unidades específicas. Estas diferencias, que afectan la correcta liquidación de expensas comunes, se evidenciaron en las siguientes unidades inmobiliarias: 407, 414, 501, 502, 505, 710, 1112, 9041, Local 1.
 • La utilización de coeficientes inexactos para estas unidades vulnera el Artículo 29 de la Ley 675 de 2001, el cual ordena que la liquidación de las expensas comunes se fundamente estrictamente en los coeficientes de copropiedad establecidos en el RPH.
 • Conforme al principio de legalidad que rige la propiedad horizontal, la corrección de esta desviación normativa es mandatoria.
 `,
-                plan_accion: `1. Ajuste Inmediato de Parámetros: Ordenar al área contable la corrección inmediata en la base de datos del sistema de los coeficientes de las unidades 407, 414, 501, 502, 505, 710, 1112, 9041, Local 1 para alinearlos con el RPH.
+            plan_accion: `1. Ajuste Inmediato de Parámetros: Ordenar al área contable la corrección inmediata en la base de datos del sistema de los coeficientes de las unidades 407, 414, 501, 502, 505, 710, 1112, 9041, Local 1 para alinearlos con el RPH.
 2. Recálculo Retroactivo: Revisar el recálculo de todas las cuotas de administración facturadas durante el periodo fiscal para las unidades afectadas, determinando los saldos a favor o en contra correspondientes en caso de haberlas.
 3. Generación de Saldos y Notificación: Elaborar y aplicar los documentos de ajuste contable (notas crédito para los cobros en exceso y notas débito para los cobros en defecto) y notificar formalmente a cada propietario afectado, explicando el origen de la diferencia.
 4. Verificación de Integridad: Documentar la verificación del 100% de todos los coeficientes cargados en el sistema contra el RPH, para garantizar que no existan otras diferencias puntuales no detectadas en esta prueba.
 `,
-                riesgos: `1. Riesgo Legal y de Litigios: Los propietarios de las unidades afectadas por cobros en exceso pueden iniciar acciones legales contra la copropiedad exigiendo la devolución de los mayores valores pagados. Así mismo, la gestión de cobro a las unidades a las que se les facturó un menor valor se obstaculiza, generando conflictos legales.
+            riesgos: `1. Riesgo Legal y de Litigios: Los propietarios de las unidades afectadas por cobros en exceso pueden iniciar acciones legales contra la copropiedad exigiendo la devolución de los mayores valores pagados. Así mismo, la gestión de cobro a las unidades a las que se les facturó un menor valor se obstaculiza, generando conflictos legales.
 2. Riesgo Financiero y Contable: Los ingresos por cuotas de administración se encuentran distorsionados, afectando la razonabilidad de los estados financieros. Si las unidades con error representan un coeficiente significativo, esto podría generar un déficit presupuestal no identificado.
 3. Riesgo de Impugnación: Un propietario afectado podría argumentar que las decisiones de la asamblea basadas en la ejecución presupuestal (la cual se nutre de recaudos con vicios en su liquidación) son impugnables.
 `,
-                normativa: `Artículo 29 Ley 675/2001`,
-                estado: `No Iniciado`,
-                impacto: `Alto`,
-                categoria: `Razonabilidad EEFF`,
-                fecha_identificacion: `2025-09`,
-                fecha_compromiso: `2026-01`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 22,
-                titulo: `Gestión de contratos y garantías`,
-                descripcion: `No existe un cuadro control para monitorear los contratos y pólizas en relación a sus vencimientos, garantías, que le permita al consejo de administración efectuar el control respectivo a tal gestión.`,
-                plan_accion: `Implementar cuadro control de contratos y pólizas.`,
-                riesgos: `"Amarres" Contractuales (Renovación Automática): Es el riesgo financiero más común. Al no tener alerta de las fechas de preaviso (generalmente 30 o 60 días antes), los contratos con proveedores deficientes se renuevan automáticamente, obligando a la copropiedad a soportarlos otro año o pagar indemnizaciones para sacarlos.
+            normativa: `Artículo 29 Ley 675/2001`,
+            estado: `No Iniciado`,
+            impacto: `Alto`,
+            categoria: `Razonabilidad EEFF`,
+            fecha_identificacion: `2025-09`,
+            fecha_compromiso: `2026-01`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 22,
+            titulo: `Gestión de contratos y garantías`,
+            descripcion: `No existe un cuadro control para monitorear los contratos y pólizas en relación a sus vencimientos, garantías, que le permita al consejo de administración efectuar el control respectivo a tal gestión.`,
+            plan_accion: `Implementar cuadro control de contratos y pólizas.`,
+            riesgos: `"Amarres" Contractuales (Renovación Automática): Es el riesgo financiero más común. Al no tener alerta de las fechas de preaviso (generalmente 30 o 60 días antes), los contratos con proveedores deficientes se renuevan automáticamente, obligando a la copropiedad a soportarlos otro año o pagar indemnizaciones para sacarlos.
 
 Desprotección Total (Vencimiento de Seguros): Si la póliza de zonas comunes vence y nadie lo nota por falta de control, el edificio queda descubierto. Un siniestro (incendio, daño a terceros) durante ese "bache" de cobertura tendría que ser pagado del bolsillo de los copropietarios.
 
 Pérdida de Garantías: Se vencen los tiempos para reclamar garantías sobre obras (ej. impermeabilización) o equipos (bombas, ascensores) sin que la administración haya hecho la inspección final, perdiendo el dinero de la reparación.
 
 Incrementos de Costos No Negociados: Al renovarse automáticamente un contrato sin revisión previa, el proveedor suele aplicar el incremento máximo permitido, perdiendo la oportunidad de negociar mejores tarifas según el mercado actual.`,
-                normativa: ``,
-                estado: `En Proceso`,
-                impacto: `Alto`,
-                categoria: `Control Interno`,
-                fecha_identificacion: `2025-10`,
-                fecha_compromiso: `2025-12`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0
-            },
-            {
-                id: 23,
-                titulo: `Libros oficiales`,
-                descripcion: `Se evidenció que no se han impreso los libros oficiales correspondientes al periodo fiscal 2025, lo que impide su adecuada conservación y uso como documentación probatoria en caso de requerimientos legales, administrativos o fiscales.
+            normativa: ``,
+            estado: `En Proceso`,
+            impacto: `Alto`,
+            categoria: `Control Interno`,
+            fecha_identificacion: `2025-10`,
+            fecha_compromiso: `2025-12`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: false
+        },
+        {
+            id: 23,
+            titulo: `Libros oficiales`,
+            descripcion: `Se evidenció que no se han impreso los libros oficiales correspondientes al periodo fiscal 2025, lo que impide su adecuada conservación y uso como documentación probatoria en caso de requerimientos legales, administrativos o fiscales.
 Según el Concepto Nº 2021-0594 del CTCP, aunque la propiedad horizontal no está obligada a registrar sus libros contables ante la Cámara de Comercio o la DIAN, sí debe llevar contabilidad y garantizar la existencia y disponibilidad de sus libros oficiales. Además, el artículo 774 del Estatuto Tributario establece que, cuando la contabilidad se use como medio de prueba, sus libros deben estar debidamente conservados y registrados.
 Importancia de los Libros Oficiales como Prueba Legal.
 Tener libros oficiales impresos y actualizados permite:
@@ -1480,37 +1502,37 @@ Tener libros oficiales impresos y actualizados permite:
 Cobro de cartera: En caso de iniciar una demanda por cuotas vencidas, la contabilidad puede respaldar la deuda ante un juez.
 	Reclamaciones por gastos o contrataciones: Si un egreso es impugnado, la contabilidad oficial permite demostrar su legitimidad.
 	Requerimientos fiscales: En caso de una revisión por parte de la DIAN, los registros contables impresos pueden ser utilizados como prueba de cumplimiento tributario.`,
-                plan_accion: `Imprimir y conservar los libros oficiales correspondientes al periodo fiscal 2025, asegurando su disponibilidad para consultas y auditorías.
+            plan_accion: `Imprimir y conservar los libros oficiales correspondientes al periodo fiscal 2025, asegurando su disponibilidad para consultas y auditorías.
 Incluir controles internos para asegurar que cada año se impriman y almacenen adecuadamente los libros oficiales.`,
-                riesgos: `1. Debilidad Probatoria en Cobros Jurídicos (Cartera): Es el riesgo más crítico. En un proceso ejecutivo contra morosos, los jueces pueden desestimar la certificación de deuda si no está respaldada por libros de contabilidad oficiales, físicos y verificables (Art. 774 E.T.), dificultando la recuperación del dinero.
+            riesgos: `1. Debilidad Probatoria en Cobros Jurídicos (Cartera): Es el riesgo más crítico. En un proceso ejecutivo contra morosos, los jueces pueden desestimar la certificación de deuda si no está respaldada por libros de contabilidad oficiales, físicos y verificables (Art. 774 E.T.), dificultando la recuperación del dinero.
 2. Pérdida de Información (Riesgo Tecnológico): El software contable es un servicio, no un archivo eterno. Si hay un cambio de administrador, un ataque informático (Ransomware) o se deja de pagar la licencia del software, la historia financiera desaparece. El libro impreso es el respaldo de seguridad definitivo.
 3. Imposibilidad de Auditoría Forense: Si se sospecha de un fraude, la contabilidad digital es fácilmente alterable ("editable"). Los libros impresos y foliados congelan la información en el tiempo, permitiendo rastrear irregularidades de administraciones pasadas.`,
-                normativa: `Artículo 774 del Estatuto Tributario`,
-                estado: `No Iniciado`,
-                impacto: `Alto`,
-                categoria: `Cumplimiento Normativo`,
-                fecha_identificacion: `2025-11`,
-                fecha_compromiso: `2026-01`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0,
-                es_nuevo: 1
-            },
-            {
-                id: 24,
-                titulo: `Uso de Software sin Licenciamiento Formal`,
-                descripcion: `Durante nuestra visita inicial de auditoría, fue posible evidenciar el uso de software sin licenciamiento formal en el ordenador del área administrativa.`,
-                plan_accion: `1.Gestionar la compra de licencias originales a través de distribuidores autorizados. 2. Formatear e instalar el software legal en los equipos afectados, asegurando que queden activos y actualizados. 3. Se insta a la administración a priorizar la partida presupuestal necesaria para esta regularización, ya que el costo de la legalización es significativamente inferior al costo de una eventual sanción legal o la recuperación de datos tras un ataque cibernético.`,
-                riesgos: `1. Riesgo de Ciberseguridad: Al no tener licencias originales, los equipos no reciben actualizaciones críticas de seguridad, quedando vulnerables a virus, ransomware y pérdida de información sensible de los copropietarios. 2.Riesgo Operativo: Inestabilidad en el funcionamiento de los equipos, posibles bloqueos del sistema y falta de soporte técnico oficial.`,
-                normativa: ``,
-                estado: `No Iniciado`,
-                impacto: `Alto`,
-                categoria: `Control Interno`,
-                fecha_identificacion: `2025-11`,
-                fecha_compromiso: `2026-01`,
-                fecha_compromiso_nueva: ``,
-                extensiones: 0,
-                es_nuevo: 1
-            }
+            normativa: `Artículo 774 del Estatuto Tributario`,
+            estado: `No Iniciado`,
+            impacto: `Alto`,
+            categoria: `Cumplimiento Normativo`,
+            fecha_identificacion: `2025-11`,
+            fecha_compromiso: `2026-01`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: true
+        },
+        {
+            id: 24,
+            titulo: `Uso de Software sin Licenciamiento Formal`,
+            descripcion: `Durante nuestra visita inicial de auditoría, fue posible evidenciar el uso de software sin licenciamiento formal en el ordenador del área administrativa.`,
+            plan_accion: `1.Gestionar la compra de licencias originales a través de distribuidores autorizados. 2. Formatear e instalar el software legal en los equipos afectados, asegurando que queden activos y actualizados. 3. Se insta a la administración a priorizar la partida presupuestal necesaria para esta regularización, ya que el costo de la legalización es significativamente inferior al costo de una eventual sanción legal o la recuperación de datos tras un ataque cibernético.`,
+            riesgos: `1. Riesgo de Ciberseguridad: Al no tener licencias originales, los equipos no reciben actualizaciones críticas de seguridad, quedando vulnerables a virus, ransomware y pérdida de información sensible de los copropietarios. 2.Riesgo Operativo: Inestabilidad en el funcionamiento de los equipos, posibles bloqueos del sistema y falta de soporte técnico oficial.`,
+            normativa: ``,
+            estado: `No Iniciado`,
+            impacto: `Alto`,
+            categoria: `Control Interno`,
+            fecha_identificacion: `2025-11`,
+            fecha_compromiso: `2026-01`,
+            fecha_compromiso_nueva: ``,
+            extensiones: 0,
+            es_nuevo: true
+        }
         ];
 
         // ============================================
